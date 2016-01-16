@@ -1,24 +1,10 @@
-White Paper
-============
+#一点点说明
 
-White Paper is a jekyll theme for tech blogs. It is clean and simple with good semantic
-structure.
+这是[BeiYuu.com](http://beiyuu.com)的示例代码，如果你看了[使用Github Pages建独立博客](http://beiyuu.com/github-pages/)，希望看下去哦：
 
-![white-paper image](https://i.cloudup.com/rmZjQ83vRh-2000x2000.png)
-
-## Usage:
-
-- Install Jekyll from here(http://jekyllrb.com/)
-- Fork the project.
-- Change the fields in _config.yml.
-- Change the links in header.html.
-
-Test the website live while editing the code:
-
-```sh
-jekyll server --watch
-```
-
-## Issues:
-
-Report issues or feature request [here](https://github.com/vinitkumar/white-paper/issues).
+* 马上动手，很赞
+* 感谢认可
+* 推荐阅读：[我为什么写博客？](http://beiyuu.com/why-blog/)
+* 想复用我的设计，没问题，标个出处就好啦
+* 转载也没问题，标个出处呗少年
+* 恩，认真的童鞋最可爱啦~
