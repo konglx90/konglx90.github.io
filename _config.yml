@@ -2,8 +2,10 @@ auto: true
 
 markdown: rdiscount
 highlighter: true
-paginate: 8
-gems: [jekyll-paginate]
+# 分页, 以后数目多了考虑
+#paginate: 8
+#gems: [jekyll-paginate]
+#paginate_path: "/blog/page:num/"
 permalink: /:title
 
 title: konglx90
