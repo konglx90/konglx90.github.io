@@ -7,27 +7,35 @@ layout: default
     body {
         background: #e8e8e8;
     }
-
+    #disqus_thread {
+                padding-right: 38%;
+                padding-left: 22%;
+            }
     @media screen and (max-width: 750px) {
         body {
             background: #fff;
+        }
+
+        #disqus_thread {
+            padding-right: 10%;
+            padding-left: 10%;
         }
     }
 
     @media screen and (max-width: 1020px) {
         body {
-            background: #fff;
+            background: #00f;
+        }
+
+        #disqus_thread {
+            padding-right: 10%;
+            padding-left: 10%;
         }
     }
 
-    #disqus_thread {
-        padding-left: 360px;
-        padding-right: 678px;
-        /*width: 100%;*/
-    }
+
 
 </style>
-
 <div id="content">
     <div class="entry">
         <h1 class="entry-title"><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h1>
