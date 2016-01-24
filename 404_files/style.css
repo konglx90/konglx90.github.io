@@ -148,7 +148,7 @@ i:nth-child(n+3) {
     box-shadow: 1px 0 2px #FFF;
 }
 
-#content {
+#_content {
     width: 1202px;
     margin: 0 auto;
 }
