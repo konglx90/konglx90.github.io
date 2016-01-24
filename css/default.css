@@ -5,8 +5,8 @@
 
 /* 重置浏览器CSS */
 html{color:#000;}
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0;}
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,menu,nav,section{margin:0;padding:0;}
+article,aside,details,figcaption,figure,footer,header,menu,nav,section{display:block;}
 body,button,input,select,textarea{font-size:12px/1.5;}
 input,select,textarea{font-size:100%;}
 table{border-collapse:collapse;border-spacing:0;}
@@ -146,7 +146,6 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
 @media screen and (max-width: 750px){
     body {font-size:14px;}
     #content {width:85%;margin:100px auto 50px; }
-    #disqus_container {width:85%;margin:100px auto 50px; }
 
     h2{font-size:20px;}
     h3{font-size:16px;}
@@ -169,6 +168,7 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
     .blog .aside,
     .project .aside,
     .opinion .aside {display:none;background-image:none;}
+
 }
 
 @media (max-width: 1020px){
@@ -180,7 +180,6 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
     .sidenav {display:none;}
     .entry {float:none;width:auto;background:transparent;padding:0;box-shadow:none;}
     #content {width:85%;margin:100px auto 50px; }
-    #disqus_container {width:85%;margin:100px auto 50px; }
 
 }
 @media (max-width: 1300px){
