@@ -19,5 +19,5 @@ category: blog
 3. 语法
 4. ...
 5. 一个python爬虫项目.
-6. 一个python web 项目. Flask  tornado 的实现.
+6. 一个python web 项目. Flask  tornado 的实现. todo系统
 7. 一个python科学计算项目.
