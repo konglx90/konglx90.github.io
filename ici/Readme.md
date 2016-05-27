@@ -3,7 +3,7 @@
 ### 调用接口
 
 http://dict-co.iciba.com/api/dictionary.php
-
+ 
 ### 基本页面来自backbone的官方例子todos
 
 - 采用HTML5标签
@@ -18,6 +18,16 @@ http://dict-co.iciba.com/api/dictionary.php
     + 例句及翻译
 - 翻译
 - 历史查询记录(TODO)
+- 移动端适配（TODO）
+    + 加入查询按钮
+    + 响应式
+- 使用Grunt来构建项目， 完成一些自动化过程（TODO）
+- 
+
+### 效果
+
+![翻译](https://raw.githubusercontent.com/konglx90/ici_backbone/master/static/ici.png)
+![单词查询](https://raw.githubusercontent.com/konglx90/ici_backbone/master/static/ici2.png "单词查询")
 
 ### 波折
 
@@ -31,10 +41,4 @@ http://dict-co.iciba.com/api/dictionary.php
 
 ```http://fanyi.youdao.com/openapi.do?keyfrom=love-ici&key=1848391244&type=data&doctype=jsonp&version=1.1&q=API```
 
-### 效果图
-![Alt text](/static/ici.png "句子翻译")
-
----
-
-![Alt text](/static/ici2.png "单词查询")
 
