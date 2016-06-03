@@ -11,5 +11,5 @@
 
 ---
 
-我的简历 /resume
-翻译     /ici
+我的简历 /webapp/resume
+爱词霸   /webapp/ici
