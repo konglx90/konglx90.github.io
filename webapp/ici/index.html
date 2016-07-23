@@ -7,13 +7,12 @@
     <title>Backbone.js ici</title>
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="./vendor/bootstrap-3.3.5-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="ici.css"/>
+    <link rel="stylesheet" href="./ici.css"/>
 </head>
 
 <body>
 
-<div id="iciapp">
-
+<div id="ici-app">
     <header>
         <h1>ici</h1>
 
@@ -23,29 +22,23 @@
                 <span class="glyphicon glyphicon-search"></span>
             </button>
         </div>
+        <a class="center-text query-history js-query-history a-link" href="javascript:void(0);">历史查询</a>
     </header>
 
     <section id="main">
-        <input id="toggle-all" type="checkbox">
-        <label for="toggle-all">Mark all as complete</label>
         <ul id="ici-result"></ul>
     </section>
 
-    <footer>
-        <div id="ici-count"></div>
-    </footer>
-
+    <footer></footer>
 </div>
 
-<div id="instructions">
-    回车查询
-</div>
+<p class="center-text">回车查询</p>
 
-<div id="credits">
+<div id="credits" class="center-text">
     Created by
     <br/>
-    <a href="http://blog.konglx90.xyz/">konglingxing</a>.
-    <br/>Rewritten by: <a href="https://github.com/konglx90/ici_backbone.git">ici_backbone</a>.
+    <a class="a-link" href="http://blog.konglx90.xyz/">konglingxing</a>.
+    <br/>Rewritten by: <a class="a-link" href="https://github.com/konglx90/ici_backbone.git">ici_backbone</a>.
 </div>
 
 <script src="./vendor/json2.js"></script>
@@ -54,35 +47,43 @@
 <script src="./vendor/underscore.js"></script>
 <script src="./vendor/backbone.js"></script>
 <script src="ici.js"></script>
-
 <!-- Templates -->
 
 <script type="text/template" id="item-template">
     <div class="view">
-        <div class="view">
-            <div class="query">单词/句子： <%- query %></div>
-            <div class="doc-line"></div>
-            <% if (basic) { %>
-            <div class="poc">读音： <%- basic.phonetic %></div>
-            <div class="meaning">
-                释义：
-                <ul>
-                    <% _.each(basic.explains,function(item){ %>
-                    <li><%= item %></li>
-                    <% }) %>
-                </ul>
-            </div>
-            <div class="eg">
-                例句：
-                <ul>
-                    <% _.each(web,function(item){ %>
-                    <li><%= item.key %> ==> <%= item.value[0] %></li>
-                    <% }) %>
-                </ul>
-            </div>
-            <% } %>
-            <div class="translate">翻译： <%- translation %></div>
+        <div class="query">单词/句子： <%- query %></div>
+        <div class="doc-line"></div>
+        <% if (basic) { %>
+        <div class="poc">读音： <%- basic.phonetic %></div>
+        <div class="meaning">
+            释义：
+            <ul>
+                <% _.each(basic.explains,function(item){ %>
+                <li><%= item %></li>
+                <% }) %>
+            </ul>
         </div>
+        <div class="eg">
+            例句：
+            <ul>
+                <% _.each(web,function(item){ %>
+                <li><%= item.key %> ==> <%= item.value[0] %></li>
+                <% }) %>
+            </ul>
+        </div>
+        <% } %>
+        <div class="translate">翻译： <%- translation %></div>
+    </div>
+</script>
+
+<!--查询历史的template-->
+<script type="text/template" id="query-history-template">
+    <div class="query-view">
+        <ul>
+            <% _.each(querys, function(item){ %>
+            <p class="query"><%= item.query %>: <%= item.explain %></p>
+            <% }) %>
+        </ul>
     </div>
 </script>
 
