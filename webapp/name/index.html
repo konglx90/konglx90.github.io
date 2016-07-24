@@ -1,46 +1,16 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <title>csv</title>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="./vender/papaparse.min.js"></script>
-    <style>
-        html,body{
-            font-size: 14px;
-            font-family: 'Microsoft Yahei',Tahoma,Verdana,simsun,sans-serif;
-        }
-        table {width: 85%;margin: 30px auto;}
-    </style>
-</head>
-<body>
-    <table id="table" border="1">
-        <caption>CSV转JSON</caption>
-        <thead>
-            <tr>
-                <th>Vehicle</th>
-                <th>Date</th>
-                <th>Location</th>
-                <th>Speed</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-    <script>
-    Papa.parse('./namesdict.csv', {
-        download: true,
-        complete: function(results) {
-            console.log(results)
-            var data = results.data, html;
-            for(var i = 1, _l = data.length-1; i < _l; i++) {
-                var item = data[i];
-                html += '<tr><td>'+item[0].substring(1)+'</td><td>'+item[1].substring(1)+'</td><td>'+item[2].substring(1)+'</td><td>'+item[3].substring(1)+'</td></tr>';
-            }
-            $('#table tbody').append(html);
-        }
-    });
+<!-- saved from url=(0022)http://127.0.0.1:3000/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><title>Array as Datas</title><link rel="stylesheet" type="text/css" href="./index_files/style.css"><link rel="stylesheet" type="text/css" href="./index_files/svg.css"><script src="./index_files/jquery-1.11.0.min.js"></script><script src="./index_files/d3.min.js" charset="utf-8"></script><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
 
-    </script>
-</body>
-</html>
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style><style>@-moz-keyframes nodeInserted{from{opacity:0.99;}to{opacity:1;}}@-webkit-keyframes nodeInserted{from{opacity:0.99;}to{opacity:1;}}@-o-keyframes nodeInserted{from{opacity:0.99;}to{opacity:1;}}@keyframes nodeInserted{from{opacity:0.99;}to{opacity:1;}}embed,object{animation-duration:.001s;-ms-animation-duration:.001s;-moz-animation-duration:.001s;-webkit-animation-duration:.001s;-o-animation-duration:.001s;animation-name:nodeInserted;-ms-animation-name:nodeInserted;-moz-animation-name:nodeInserted;-webkit-animation-name:nodeInserted;-o-animation-name:nodeInserted;}</style></head><body><p>人名</p><p id="count-words" data-count-words="[48,86260,1084128,8080]"></p><p id="count-family-names" data-family-name="[{&quot;name&quot;:&quot;杨&quot;,&quot;value&quot;:24306},{&quot;name&quot;:&quot;陈&quot;,&quot;value&quot;:34007},{&quot;name&quot;:&quot;刘&quot;,&quot;value&quot;:36106},{&quot;name&quot;:&quot;张&quot;,&quot;value&quot;:43753},{&quot;name&quot;:&quot;李&quot;,&quot;value&quot;:44257},{&quot;name&quot;:&quot;其他&quot;,&quot;value&quot;:996087}]"></p><div class="container"><svg width="100%" height="100%"><g class="main" transform="translate(300,150)"><g class="slices"><path fill="#2ec7c9" d="M6.123233995736766e-15,-100A100,100 0 0,1 12.922356406433174,-99.16154852010489L0,0Z"></path><path fill="#b6a2de" d="M12.922356406433174,-99.16154852010489A100,100 0 0,1 30.59081488290898,-95.20610298084674L0,0Z"></path><path fill="#5ab1ef" d="M30.59081488290898,-95.20610298084674A100,100 0 0,1 48.23969685763843,-87.59527183063678L0,0Z"></path><path fill="#ffb980" d="M48.23969685763843,-87.59527183063678A100,100 0 0,1 67.18143288022682,-74.07195877091127L0,0Z"></path><path fill="#d87a80" d="M67.18143288022682,-74.07195877091127A100,100 0 0,1 82.6357744011186,-56.31455219681174L0,0Z"></path><path fill="#8d98b3" d="M82.6357744011186,-56.31455219681174A100,100 0 1,1 -1.8369701987210297e-14,-100L0,0Z"></path></g><g class="lines"><polyline points="7.1222408365383485,-109.76918367860057,7.769717276223652,-119.74820037665515,250,-119.74820037665515" style="opacity: 0.5;"></polyline><polyline points="24.030919491013556,-107.34297791852258,26.21554853565115,-117.10143045657007,220.00000000000003,-117.10143045657007" style="opacity: 0.5;"></polyline><polyline points="43.55838306746774,-101.00825344766507,47.518236073601166,-110.19082194290733,180,-110.19082194290733" style="opacity: 0.5;"></polyline><polyline points="63.91586226272889,-89.5252062338416,69.72639519570424,-97.66386134600901,150,-97.66386134600901" style="opacity: 0.5;"></polyline><polyline points="82.97624737513982,-72.21455789201791,90.51954259106162,-78.77951770038317,120,-78.77951770038317" style="opacity: 0.5;"></polyline><polyline points="-51.40981999669799,97.24726426952645,-56.0834399963978,106.0879246576652,-90,106.0879246576652" style="opacity: 0.5;"></polyline></g><g class="labels"><text dy="0.35em" fill="#2ec7c9" transform="translate(250,-119.74820037665515)" style="text-anchor: start; opacity: 1;">杨</text><text dy="0.35em" fill="#b6a2de" transform="translate(220.00000000000003,-117.10143045657007)" style="text-anchor: start; opacity: 1;">陈</text><text dy="0.35em" fill="#5ab1ef" transform="translate(180,-110.19082194290733)" style="text-anchor: start; opacity: 1;">刘</text><text dy="0.35em" fill="#ffb980" transform="translate(150,-97.66386134600901)" style="text-anchor: start; opacity: 1;">张</text><text dy="0.35em" fill="#d87a80" transform="translate(120,-78.77951770038317)" style="text-anchor: start; opacity: 1;">李</text><text dy="0.35em" fill="#8d98b3" transform="translate(-90,106.0879246576652)" style="text-anchor: end; opacity: 1;">其他</text></g></g></svg></div><script type="text/javascript" src="./index_files/name.js"></script><svg width="900" height="300"><rect x="20" y="0" width="1" height="23" fill="steelblue"></rect><rect x="20" y="25" width="72.49342114973065" height="23" fill="steelblue"></rect><rect x="20" y="50" width="900" height="23" fill="steelblue"></rect><rect x="20" y="75" width="7.660733525201092" height="23" fill="steelblue"></rect><g class="axis" transform="translate(20,130)"><g class="tick" transform="translate(166.81511327577297,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">200,000</text></g><g class="tick" transform="translate(332.6700317319755,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">400,000</text></g><g class="tick" transform="translate(498.524950188178,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">600,000</text></g><g class="tick" transform="translate(664.3798686443805,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">800,000</text></g><g class="tick" transform="translate(830.2347871005829,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">1,000,000</text></g><path class="domain" d="M1,6V0H900V6"></path></g></svg></body></html>
