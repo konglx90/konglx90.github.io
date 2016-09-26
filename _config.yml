@@ -1,7 +1,9 @@
 auto: true
 
-markdown: rdiscount
-highlighter: true
+markdown: kramdown
+kramdown:
+    input: GFM
+highlighter: rouge
 # 分页, 以后数目多了考虑
 #paginate: 8
 #gems: [jekyll-paginate]

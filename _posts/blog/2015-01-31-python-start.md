@@ -6,11 +6,7 @@ description: python的初级指导教程, 主要针对的是具有一点编程�
 category: blog
 ---
 
-##全文目录
-
----
-
-1. python与其他语言的比较及安装.
+- python与其他语言的比较及安装.
 	
 	> 优点: 简单易学, 应用广泛
 	>国内应用：豆瓣（架构：Quixote堂吉诃德）、搜狐(搜狐邮箱是架构在web.py上）、金山、腾讯、盛大、网易、百度、阿里、淘宝、热酷、土豆、新浪、果壳
@@ -21,7 +17,7 @@ Web开发、数据库编程、桌面GUI应用开发、科学与数值计算、�
 Python几乎可以用在任何场合（转载者注：前提是，你自己的确掌握了Python及相关知识）	[来源](http://www.crifan.com/simple_intro_what_is_python_and_how_to_run_python_script/)
 
 
-2. 入门教程及书籍推荐
+- 入门教程及书籍推荐
 	* python基础教程
 		- 入门的基础都有讲， 但比较啰嗦， 最后的十个项目是亮点
 	* 可爱的python
@@ -31,8 +27,3 @@ Python几乎可以用在任何场合（转载者注：前提是，你自己的�
 	* 像计算机科学家一样思考python
 		- 一个系列的书, 同风格的还有C++, Java等
 
-3. 语法
-4. ...
-5. 一个python爬虫项目.
-6. 一个python web 项目. Flask  tornado 的实现. todo系统
-7. 一个python科学计算项目.

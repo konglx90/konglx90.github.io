@@ -5,7 +5,7 @@ description:
 category: blog
 ---
 
-###16-04-14-T-01
+### 16-04-14-T-01
 
 > 两数之和：
  给定一个整型数组，是否可以找出使其和为某个特定值(不能使用额外的数组等)？
@@ -205,7 +205,7 @@ if __name__ == "__main__":
     doctest.testmod(verbose=True)
 ```
 
-###16-04-24-T-01
+### 16-04-24-T-01
 >Reverse Vowels of a String
 ** Total Accepted: **2041** Total Submissions: **5427** Difficulty: **Easy** 
 Write a function that takes a string as input and reverse only the vowels of a string.
@@ -240,7 +240,7 @@ class Solution(object):
         return "".join(l)
 ```
 
-###16-04-24-T-02
+### 16-04-24-T-02
 >Reverse String
   ** Total Accepted: **4928** Total Submissions: **8245** Difficulty: **Easy** 
 Write a function that takes a string as input and returns the string reversed.
@@ -299,7 +299,7 @@ class Solution(object):
         return dp[n]
 ```
 
-###16-04-25-T-02
+### 16-04-25-T-02
 >342. Power of Four
   **Total Accepted: **6687** Total Submissions: **19952** Difficulty: **Easy** 
 Given an integer (signed 32 bits), write a function to check whether it is a power of 4.**Example:**Given num = 16, return true.Given num = 5, return false.

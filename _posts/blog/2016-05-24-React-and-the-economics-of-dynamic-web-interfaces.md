@@ -15,7 +15,7 @@ category: blog
 
 有足够多的博客、 讨论、视频录音告诉web开发者React是如何工作的以及它的好处。 大量关于虚拟DOM、嵌入式HTML、JSX里的javascript、组织UI组件，这些都是React里有趣的技术， 然而我认为这些技术还不足以使React如此流行。经过一番调查，我意识到React之所以如此强大是因为它从根本上改变了我们多年来工作的方式(changes an equation)。一个观念上的改变远比实现它的技术要影响深远的多。
 
-#####The economics of dynamic web interfaces
+##### The economics of dynamic web interfaces
 
 在浏览器中， 从文档对象模型(DOM)出现到被大规模采纳，web开发者就形成了一个共识：DOM是慢的。避免更新DOM的内容，否则你将得到对文档的重绘与回流(repaint and reflow)。总之，动态更新网页确实会有成本， 消耗的成本可以分为以下几点：
 
@@ -31,7 +31,7 @@ category: blog
 
 这些方法可以缓解更新DOM时的消耗， 但是并没有在根本上改变那个方程。`Each of these approaches chips away at the cost of updating the DOM but doesn't do anything to fundamentally change the equation.`在这个世界上，你不会希望一条命令会多次重新渲染(re-render)整个页面，这无疑会造成不好的用户体验。这正是React带来的改变。
 
-#####React 改变了这个方程
+##### React 改变了这个方程
 
 众所周知， React解决了许多问题。它为你管理事件处理器，确保它们在正确的时间和节点上创建和分离(attached and detached)，高效地创建和销毁DOM结构，使用虚拟DOM有差异的决定修改哪个组件。所有的这些技术改变了过去的方程：更新DOM变快了。
 

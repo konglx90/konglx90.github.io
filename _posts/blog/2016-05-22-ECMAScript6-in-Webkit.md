@@ -6,7 +6,7 @@ category: blog
 ---
 
 
-###翻译自[Webkit blog](https://webkit.org/blog/4054/es6-in-webkit/)
+### 翻译自[Webkit blog](https://webkit.org/blog/4054/es6-in-webkit/)
 
 > 原作时间：Oct 13, 2015 by Saam Barati @saambarati
 翻译时间：Apr 11, 2016
@@ -38,9 +38,9 @@ category: blog
 
 ---
 
-###翻译笔记: 
+### 翻译笔记:
 
-####1. 关于块级作用域和函数级作用域的比较
+#### 1. 关于块级作用域和函数级作用域的比较
 
 ```
 {
@@ -56,7 +56,7 @@ b; //2
 node在ubuntu上启用支持es6`node --use-strict $(node --v8-options | grep harm | awk '{print $1}' | xargs) file.js`
 
 
-####2. 箭头函数
+#### 2. 箭头函数
 本文中关于箭头函数的原文是：
 >arrow functions make it easy to write small functions that have a lexically bound this;
 
@@ -113,6 +113,6 @@ function Person(){
 var p = new Person();
 ```
 
-###3. 解构型语法一例
+### 3. 解构型语法一例
 
 `let [x, y] = ['a', 'b']; // x = 'a'; y = 'b'`
