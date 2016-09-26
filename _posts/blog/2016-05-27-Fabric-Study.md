@@ -5,9 +5,9 @@ description: Python常用的项目自动化部署工具
 category: blog
 ---
 
-##Fabric 笔记  
+## Fabric 笔记
 
-###能做什么？
+### 能做什么？
 	
 - executing local or remote shell commands
 - uploading/downloading files
@@ -46,7 +46,7 @@ def exists(path):
         return run('test -e %s' % path)
 ```
 
-###临时指定user
+### 临时指定user
 ```
 from fabric.api import env, run
 
@@ -59,7 +59,7 @@ def print_user():
 ```
 
 
-###fabric 的执行策略
+### fabric 的执行策略
 
 
  - 一列任务被创建， 作为一个参数传给fab， 任务保持给定的顺序
@@ -69,7 +69,7 @@ def print_user():
 fab options and arguments
 
 
-###fab 的选项与参数
+### fab 的选项与参数
 #### fab --help 
 ```
 Usage: fab [options] <command>[:arg1,arg2=val2,host=foo,hosts='h1;h2',...] ...
@@ -143,7 +143,7 @@ Options:
 ```
 
 
-###并行执行
+### 并行执行
 
 如：
 
@@ -242,7 +242,7 @@ $ fab -P -z 5 heavy_task
 ```
 
 
-###定义任务`@task`装饰器
+### 定义任务`@task`装饰器
 
 有了这个装饰器就可以， 为任务取别名
 
@@ -308,7 +308,7 @@ task_obj = CustomTask(actual_task, myarg='value')
 
 ```
 
-###命名空间
+### 命名空间
 目录树
 
 ```
@@ -412,7 +412,7 @@ Available commands (remember to call as module.[...].task):
         add_backend
 ```
 
-###终端文本的颜色
+### 终端文本的颜色
 
 ```
 fabric.colors.blue(text, bold=False)
@@ -434,17 +434,17 @@ print _wrap_with('30')("i am black")
 ```
 
 
-###上下文管理器
+### 上下文管理器
 
 show、hide、lcd、cd、prefix等等
 
 
-###[装饰器](http://docs.fabfile.org/en/1.11/api/core/decorators.html)
+### [装饰器](http://docs.fabfile.org/en/1.11/api/core/decorators.html)
 hosts、parallel、roles、runs_once、task、serial
 
-###[网络有关的部分](http://docs.fabfile.org/en/1.11/api/core/network.html)
+### [网络有关的部分](http://docs.fabfile.org/en/1.11/api/core/network.html)
 
-###一些常用的操作
+### 一些常用的操作
 
 - get() 从远程站点下载文件
 - local() 在本地运行命令
