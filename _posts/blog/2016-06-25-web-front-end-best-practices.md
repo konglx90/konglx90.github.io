@@ -54,6 +54,7 @@ Web 前端性能分析： YSlow、PageSpeed
 - HTML里 id使用下划线( _ )连接、class使用中划线( - )，如果class名称仅作为 
 js调用的钩子， 可以在名称前添加js, 如"js-active"
 - css 名称取用html里的名称， 如果多个选择器具有同样的样式声明， 每个选择器应该独占一行
+
 ```
 h1,
 h2 {
@@ -61,6 +62,7 @@ h2 {
 }
 
 ```
+
 - [js命名规范](http://www.cnblogs.com/hustskyking/p/javascript-spec.html)
 
 ### HTML
