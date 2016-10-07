@@ -130,6 +130,7 @@ const isJedi = luke.jedi;
 - [5.2] 当通过变量访问属性时使用中括号 [] (可用性)
 
 避免类似`no-name`、`2`等属性
+
 ```
 const luke = {
   jedi: true,
