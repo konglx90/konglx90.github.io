@@ -1,3 +1,10 @@
+---
+layout: post
+title: JavaScript 权威指南阅读笔记
+description: 
+category: blog
+---
+
 ## 词法结构
 
 ### 字符集
