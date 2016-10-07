@@ -285,6 +285,7 @@ if (collection.length) {
 ### Comments
 
 - [8.1] Use /** ... */ for multi-line comments. Include a description, specify types and values for all parameters and return values.
+
 ```
 // bad
 // make() returns a new element
@@ -329,6 +330,7 @@ class Calculator extends Abacus {
 ```
 
 - [8.3] Use // TODO: to annotate solutions to problems.
+
 ```
 class Calculator extends Abacus {
   constructor() {
