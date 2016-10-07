@@ -1,3 +1,10 @@
+---
+layout: post
+title: JavaScript 代码规范
+description: 
+category: blog
+---
+
 - [1.0] 对常量使用const、对普通变量使用let代替var
 
 const 和 let都是块级作用域
