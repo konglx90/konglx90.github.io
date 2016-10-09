@@ -7,7 +7,7 @@ category: blog
 
 - [1.0] 对常量使用const、对普通变量使用let代替var
 
-const 和 let都是块级作用域
+> const 和 let都是块级作用域
 
 ```
 // const 和 let 只存在于它们被定义的区块内。
@@ -19,7 +19,7 @@ console.log(a); // ReferenceError
 console.log(b); // ReferenceError
 ```
 
-###Array
+### Array
 
 - [2.1] 使用字面值创建数组
 
