@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JavaScript 代码规范
-description: 
+description:
 category: blog
 ---
 
@@ -9,11 +9,11 @@ category: blog
 
 > const 和 let都是块级作用域
 
-```
+```js
 // const 和 let 只存在于它们被定义的区块内。
 {
-let a = 1;
-const b = 1;
+  let a = 1;
+  const b = 1;
 }
 console.log(a); // ReferenceError
 console.log(b); // ReferenceError
@@ -23,7 +23,7 @@ console.log(b); // ReferenceError
 
 - [2.1] 使用字面值创建数组
 
-```
+```js
 // bad
 const items = new Array();
 
@@ -33,7 +33,7 @@ const items = [];
 
 - [2.2] 使用数组的push方法, 而不是直接直接添加
 
-```
+```js
 const someStack = [];
 
 // bad
@@ -45,7 +45,7 @@ someStack.push('abracadabra');
 
 - [2.3] 使用...复制数组
 
-```
+```js
 const len = items.length;
 const itemsCopy = [];
 let i;
@@ -69,7 +69,7 @@ const itemsCopy = [...items];
 函数提升(hoisted),而函数表达式只会把函数的引用变量名提升。这条规则使得箭头函数可以
 取代函数表达式。
 
-```
+```js
 // bad
 const foo = function () {
 };
@@ -86,7 +86,7 @@ function foo() {
 
 - [4.4] 直接给函数的参数指定默认值,不要使用一个变化的函数参数
 
-```
+```js
 // really bad
 function handleThings(opts) {
   // No! We shouldn't mutate function arguments.
@@ -114,7 +114,7 @@ function handleThings(opts = {}) {
 
 - [5.1] 使用点操作符获取属性(可读性)
 
-```
+```js
 const luke = {
   jedi: true,
   age: 28,
@@ -131,7 +131,7 @@ const isJedi = luke.jedi;
 
 避免类似`no-name`、`2`等属性
 
-```
+```js
 const luke = {
   jedi: true,
   age: 28,
@@ -142,17 +142,17 @@ function getProp(prop) {
 }
 
 const isJedi = getProp('jedi');
+```
 
 ### Hoisting
 
 [JavaScript Scoping and Hoisting](http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html)
-```
 
 - [6.1] var 声明会被提升至该作用域的顶部,但它们赋值不会提升。 let 和 const 被赋予了一种称为
 「暂时性死区(Temporal Dead Zones, TDZ) 」的概念。这对于了解为什么 type of 不再安全相当
 重要。
 
-```
+```js
 // we know this wouldn't work (assuming there
 // is no notDefined global variable)
 function example() {
@@ -187,7 +187,7 @@ function example() {
 
 - [6.2] 匿名函数表达式的变量名会被提升,但函数内容并不会
 
-```
+```js
 function example() {
   console.log(anonymous); // => undefined
 
@@ -201,7 +201,7 @@ function example() {
 
 - [6.3] 命名的函数表达式的变量名会被提升,但函数名和函数函数内容并不会
 
-```
+```js
 function example() {
   console.log(named); // => undefined
 
@@ -252,7 +252,7 @@ function example() {
 	+ Numbers evaluate to false if +0, -0, or NaN, otherwise true
 	+ Strings evaluate to false if an empty string '', otherwise true
 
-```
+```js
 if ([0] && []) {
   // true
   // an array (even an empty one) is an object, objects will evaluate to true
@@ -261,7 +261,7 @@ if ([0] && []) {
 
 - [7.3] Use shortcuts
 
-```
+```js
 // bad
 if (name !== '') {
   // ...stuff...
@@ -285,9 +285,9 @@ if (collection.length) {
 
 ### Comments
 
-- [8.1] Use /** ... */ for multi-line comments. Include a description, specify types and values for all parameters and return values.
+- [8.1] Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
 
-```
+```js
 // bad
 // make() returns a new element
 // based on the passed in tag name
@@ -319,7 +319,7 @@ function make(tag) {
 
 - [8.2] Use // FIXME: to annotate problems.
 
-```
+```js
 class Calculator extends Abacus {
   constructor() {
     super();
@@ -332,7 +332,7 @@ class Calculator extends Abacus {
 
 - [8.3] Use // TODO: to annotate solutions to problems.
 
-```
+```js
 class Calculator extends Abacus {
   constructor() {
     super();
@@ -347,7 +347,7 @@ class Calculator extends Abacus {
 
 - [9.1] Strings:
 
-```
+```js
 // => this.reviewScore = 9;
 
 // bad
@@ -362,7 +362,7 @@ const totalScore = String(this.reviewScore);
 
 - [9.2] Numbers: Use Number for type casting and parseInt always with a radix for parsing strings
 
-```
+```js
 const inputValue = '4';
 
 // bad

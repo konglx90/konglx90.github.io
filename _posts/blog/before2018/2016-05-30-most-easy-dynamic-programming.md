@@ -8,7 +8,7 @@ category: blog
 
 爬楼梯
 
-```
+```py
 # -*- coding: utf-8 -*-
 def pa(n):
     """
@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
 迷宫
 
-```
+```py
 #-*- coding: utf-8 -*-
 def find_place_num(n, m):
     """

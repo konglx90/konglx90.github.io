@@ -20,7 +20,7 @@ category: blog
    - Map, Set, WeakMap, WeakSet, for…of loops
    - Symbols
    - 和一些其他优秀的特性
-   
+
 你可以运行最新的[WebKit nightly build](https://webkit.org/nightly/)去尝试更多的ES6新特性。我们最近实现了：
 
 
@@ -42,7 +42,7 @@ category: blog
 
 #### 1. 关于块级作用域和函数级作用域的比较
 
-```
+```js
 {
 	let a=10;
     var b=2;
@@ -65,13 +65,13 @@ node在ubuntu上启用支持es6`node --use-strict $(node --v8-options | grep har
 
 >Until arrow functions, every new function defined its own this value (a new object in case of a constructor, undefined in strict mode function calls, the context object if the function is called as an "object method", etc.). This proved to be annoying with an object-oriented style of programming.
 
-```
+```js
 function Person() {
   // The Person() constructor defines `this` as an instance of itself.
   this.age = 0;
 
   setInterval(function growUp() {
-    // In non-strict mode, the growUp() function defines `this` 
+    // In non-strict mode, the growUp() function defines `this`
     // as the global object, which is different from the `this`
     // defined by the Person() constructor.
     this.age++;
@@ -82,9 +82,9 @@ var p = new Person();```
 
 >In ECMAScript 3/5, this issue was fixed by assigning the value in this to a variable that could be closed over.
 
-```
+```js
 function Person() {
-  var self = this; // Some choose `that` instead of `self`. 
+  var self = this; // Some choose `that` instead of `self`.
                    // Choose one and be consistent.
   self.age = 0;
 
@@ -101,7 +101,7 @@ function Person() {
 
 >Arrow functions capture the this value of the enclosing context, so the following code works as expected.
 
-```
+```js
 function Person(){
   this.age = 0;
 

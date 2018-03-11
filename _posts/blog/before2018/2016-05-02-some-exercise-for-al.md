@@ -38,7 +38,7 @@ def find(value, a_list):
             if a_list[i] + a_list[j] == value:
                 return True
     return False
-    
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod(verbose=True)
@@ -125,7 +125,7 @@ if __name__ == "__main__":
 
 方法一： 一个一个旋转O(k*n)
 
-```
+```py
 # -*- coding:utf-8 -*-
 def xuan_zhuang(step, a_list):
     """
@@ -152,7 +152,7 @@ if __name__ == "__main__":
 
 方法二： 降低复杂度O(n)
 
-```
+```py
 # -*- coding:utf-8 -*-
 def xuan_zhuang(step, a_list):
     """
@@ -207,12 +207,12 @@ if __name__ == "__main__":
 
 ### 16-04-24-T-01
 >Reverse Vowels of a String
-** Total Accepted: **2041** Total Submissions: **5427** Difficulty: **Easy** 
+** Total Accepted: **2041** Total Submissions: **5427** Difficulty: **Easy**
 Write a function that takes a string as input and reverse only the vowels of a string.
 **Example 1:**Given s = "hello", return "holle".
 **Example 2:**Given s = "leetcode", return "leotcede".
 
-```
+```py
 # -*- coding: utf-8 -*-
 class Solution(object):
     def reverseVowels(self, s):
@@ -242,7 +242,7 @@ class Solution(object):
 
 ### 16-04-24-T-02
 >Reverse String
-  ** Total Accepted: **4928** Total Submissions: **8245** Difficulty: **Easy** 
+  ** Total Accepted: **4928** Total Submissions: **8245** Difficulty: **Easy**
 Write a function that takes a string as input and returns the string reversed.
 **Example:**Given s = "hello", return "olleh".
 
@@ -275,7 +275,7 @@ public class Solution {
 
 ###16-04-25-T-01
 >343. Integer Break
-  ** Total Accepted: **4197** Total Submissions: **10340** Difficulty: **Medium** 
+  ** Total Accepted: **4197** Total Submissions: **10340** Difficulty: **Medium**
 Given a positive integer *n*, break it into the sum of **at least** two positive integers and maximize the product of those integers. Return the maximum product you can get.
 For example, given *n* = 2, return 1 (2 = 1 + 1); given *n* = 10, return 36 (10 = 3 + 3 + 4).
 **Note**: you may assume that *n* is not less than 2.
@@ -283,7 +283,7 @@ For example, given *n* = 2, return 1 (2 = 1 + 1); given *n* = 10, return 36 (10 
 
 O(n<sup>2</sup>)
 
-```
+```py
 # -*- coding: utf-8 -*-
 class Solution(object):
     def integerBreak(self, n):
@@ -301,14 +301,14 @@ class Solution(object):
 
 ### 16-04-25-T-02
 >342. Power of Four
-  **Total Accepted: **6687** Total Submissions: **19952** Difficulty: **Easy** 
+  **Total Accepted: **6687** Total Submissions: **19952** Difficulty: **Easy**
 Given an integer (signed 32 bits), write a function to check whether it is a power of 4.**Example:**Given num = 16, return true.Given num = 5, return false.
 **Follow up**: Could you solve it without loops/recursion?
 **Credits:**Special thanks to @yukuairoy  for adding this problem and creating all test cases.
 
 方法一
 
-```
+```py
 # -*- coding: utf-8 -*-
 class Solution(object):
     def isPowerOfFour(self, num):

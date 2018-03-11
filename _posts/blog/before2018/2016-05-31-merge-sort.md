@@ -5,7 +5,7 @@ description: 归并排序的Python实现
 category: blog
 ---
 
-```
+```py
 # -*- coding: utf-8 -*-
 from collections import deque
 
@@ -26,8 +26,8 @@ def merge_sort(lst):
     left = merge_sort(lst[:middle])
     right = merge_sort(lst[middle:])
     return merge(left, right)
-    
-    
+
+
 def merge_sort2(lst):
     """
     """
@@ -50,7 +50,7 @@ def merge_sort2(lst):
         if len(right) != y:
             z_list = z_list + right[x-len(right)-1:]
         return z_list
-       
+
 
     middle = int(len(lst) // 2)
     left = merge_sort2(lst[:middle])
