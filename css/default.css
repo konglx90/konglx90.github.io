@@ -34,7 +34,6 @@ body .hide{display:none;}
 /***********default settings**********/
 body {font-family: "微软雅黑","Arial","Helvetica","sans-serif";font-size:16px;}
 a {color:#4A75B5;text-decoration:none;outline:none;}
-a:hover {text-decoration:underline}
 a.external {padding-right:13px;background:url('/images/icons.gif') no-repeat right 1px;}
 a.external:hover {background-position:right -15px;}
 .entry-title,.entry-title a {font-size:30px;font-weight:bold;margin-bottom:6px;color:#222;text-align:center;word-wrap: break-word;}
@@ -61,7 +60,7 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 .sidenav ul { margin-bottom:50px; }
 .sidenav li { margin-bottom:12px; word-break: break-all;}
 .sidenav a { color:#555; font-size:14px; display:block;}
-.entry{margin-bottom:80px;width:680px; float:left; background:#fff; padding:30px; box-shadow:0 2px 6px #ccc; }
+.entry {margin-bottom:80px;width:680px; float:left; background:#fff; padding:30px; box-shadow:0 2px 6px #ccc;min-height: 720px;}
 .entry ul{margin-bottom:25px;margin-left:25px;}
 .entry p+ul {margin-top:-20px;}
 .entry ul li{margin-bottom:5px;list-style:disc;line-height:1.8em;}
@@ -178,7 +177,7 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
     .index-content .artical-list,
     .index-content .artical-cate { width:85%; }
     .sidenav {display:none;}
-    .entry {float:none;width:auto;background:transparent;padding:0;box-shadow:none;}
+    .entry {float:none;width:auto;background:transparent;padding:0;box-shadow:none;min-height:720px;}
     #content {width:85%;margin:100px auto 50px; }
 
 }
@@ -186,9 +185,9 @@ h3.about {color:#777;margin-top:20px;font-size:22px;margin-bottom:10px}
     .home-menu { position:absolute; }
 }
 
-.footer {text-align: center; display: block; background-color: rgba(179, 190, 195, 0.2); margin-bottom: 0px;
+.footer {clear: both;text-align: center; display: block; background-color: rgba(179, 190, 195, 0.2); margin-bottom: 0px;padding: 20px;}
 margin-inside: 100px; color: #555555; font-size: 15px; line-height: 30px; margin-top: 1000px}
-.footer a{
+.footer a {
     color: inherit;
     text-decoration: none;
 }
