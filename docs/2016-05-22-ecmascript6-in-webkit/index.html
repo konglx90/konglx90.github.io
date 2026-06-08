@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><title>翻译： ECMAScript 6 in WebKit · konglx90</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Webkit对ES6支持的一篇介绍文章"><meta name="author" content="Konglx90"><link rel="icon" href="/favicon.ico"><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"><style>.site-nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}.nav-inner{max-width:var(--content-max);margin:0 auto;padding:0 24px;height:var(--nav-height);display:flex;align-items:center;justify-content:space-between}.nav-logo{font-size:1.125rem;font-weight:700;letter-spacing:-.02em}.nav-links{display:flex;gap:4px}.nav-links a{padding:6px 14px;border-radius:9999px;font-size:.875rem;font-weight:500;color:var(--text-secondary);transition:all .2s}.nav-links a:hover{color:var(--text);background:var(--surface-hover)}.nav-links a.active{color:var(--accent);background:var(--accent-subtle)}.site-footer{margin-top:100px;border-top:1px solid var(--border)}.footer-inner{max-width:var(--content-max);margin:0 auto;padding:32px 24px;display:flex;justify-content:space-between;align-items:center;font-size:.875rem;color:var(--text-muted)}.footer-links{display:flex;gap:20px}.footer-links a{color:var(--text-secondary);font-size:.875rem}@media(max-width:640px){.nav-inner{padding:0 16px}.footer-inner{flex-direction:column;gap:12px;text-align:center}}main{min-height:calc(100vh - var(--nav-height) - 100px)}:root{--font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;--font-mono: "SF Mono", "Fira Code", "JetBrains Mono", "Roboto Mono", "Source Code Pro", Consolas, monospace;--bg: #f8f7f4;--surface: #ffffff;--surface-hover: #fafaf9;--text: #1c1917;--text-secondary: #78716c;--text-muted: #a8a29e;--accent: #e11d48;--accent-hover: #be123c;--accent-subtle: #fef2f2;--border: #e7e5e4;--shadow-sm: 0 1px 2px rgba(0,0,0,.04);--shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);--shadow-lg: 0 4px 12px rgba(0,0,0,.06);--radius: 12px;--radius-sm: 8px;--nav-height: 56px;--content-max: 720px}@media(prefers-color-scheme:dark){:root{--bg: #0c0a09;--surface: #1c1917;--surface-hover: #292524;--text: #e7e5e4;--text-secondary: #a8a29e;--text-muted: #78716c;--accent: #fb7185;--accent-hover: #fda4af;--accent-subtle: #1c1917;--border: #292524;--shadow-sm: 0 1px 2px rgba(0,0,0,.2);--shadow: 0 1px 3px rgba(0,0,0,.3);--shadow-lg: 0 4px 12px rgba(0,0,0,.4)}}*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--font-sans);font-size:16px;line-height:1.75;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{color:var(--text);text-decoration:none;transition:color .2s}a:hover{color:var(--accent)}img{max-width:100%;height:auto;display:block}::selection{background:var(--accent);color:#fff}
+.post-full{margin:0 auto;padding:0 24px 80px}.post-head{width:100%;padding:48px 0 32px;border-bottom:1px solid var(--border);margin-bottom:0}.post-cat{display:inline-block;font-size:.8rem;font-weight:600;color:var(--accent);background:var(--accent-subtle);padding:3px 12px;border-radius:9999px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.04em}.post-cat:hover{color:var(--accent-hover)}.post-head .post-title{font-size:2rem;font-weight:800;line-height:1.3;letter-spacing:-.02em;margin:0}.post-meta{margin-top:12px;font-size:.875rem;color:var(--text-muted);font-family:var(--font-mono)}.meta-dot{margin:0 6px}.post-body{flex:1;min-width:0;max-width:var(--content-max);padding-top:32px}.post-body h2{font-size:1.5rem;font-weight:700;margin:2.5em 0 .8em;line-height:1.3;letter-spacing:-.01em}.post-body h3{font-size:1.2rem;font-weight:600;margin:2em 0 .6em;line-height:1.4}.post-body h4{font-weight:600;margin:1.5em 0 .5em}.post-body p{margin-bottom:1.5em;line-height:1.8;color:var(--text)}.post-body a{color:var(--accent);border-bottom:1px solid transparent}.post-body a:hover{border-bottom-color:var(--accent)}.post-body ul,.post-body ol{margin-bottom:1.5em;padding-left:1.5em}.post-body ul li{list-style:disc;margin-bottom:.3em;line-height:1.8}.post-body ol li{list-style:decimal;margin-bottom:.3em;line-height:1.8}.post-body blockquote{margin:2em 0;padding:1em 1.5em;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:.95rem;color:var(--text-secondary);font-style:italic}.post-body hr{margin:3em 0;border:none;height:1px;background:var(--border)}.post-body img{margin:2em auto;border-radius:var(--radius);box-shadow:var(--shadow)}.post-body table{width:100%;border-collapse:collapse;margin-bottom:1.5em;font-size:.9rem}.post-body th,.post-body td{border:1px solid var(--border);padding:.5em .75em;text-align:left}.post-body th{background:var(--surface-hover);font-weight:600}.post-body code{font-family:var(--font-mono);background:var(--surface-hover);border:1px solid var(--border);padding:.15em .45em;border-radius:4px;font-size:.85em}.post-body pre{font-family:var(--font-mono);background:#1a1a2e;color:#e4e4e7;padding:1.25rem 1.5rem;overflow-x:auto;margin:2em 0;font-size:.85rem;line-height:1.65;border-radius:var(--radius);border:1px solid #2a2a3e;tab-size:2}.post-body pre code{background:transparent;border:none;padding:0;color:inherit;font-size:inherit}@media(prefers-color-scheme:dark){.post-body pre{background:#000;border-color:var(--border)}}width: 240px; flex-shrink: 0; position: sticky; top: calc(var(--nav-height) + 32px); padding-top: 32px; } .sidebar-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}.sidebar-block h3{font-size:.85rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}.sidebar-block ul{display:flex;flex-direction:column;gap:8px}.sidebar-block a{font-size:.85rem;color:var(--text-secondary);line-height:1.4;display:block}.sidebar-block a:hover{color:var(--accent)}@media(max-width:900px){.post-sidebar{display:none}.post-full{padding:0 16px 60px}.post-head .post-title{font-size:1.6rem}.post-head{padding:32px 0 24px}}.fixed-clock{position:fixed;bottom:24px;right:24px;background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:6px 16px;box-shadow:var(--shadow-lg);font-family:var(--font-mono);font-size:.85rem;font-weight:600;z-index:100;letter-spacing:1px;font-variant-numeric:tabular-nums;color:var(--text-secondary);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}.fixed-clock:hover{color:var(--accent);border-color:var(--accent)}@media(max-width:640px){.fixed-clock{bottom:12px;right:12px;padding:4px 12px;font-size:.8rem}}
+</style></head> <body> <!-- ── Navigation ── --> <header class="site-nav"> <div class="nav-inner"> <a href="/" class="nav-logo">Konglx</a> <nav class="nav-links"> <a href="/" class>Blog</a> <a href="/opinion" class>Opinion</a> <a href="/project" class>Project</a> </nav> </div> </header> <main>  <article class="post-full"> <header class="post-head"> <a href="/" class="post-cat">Blog</a> <h1 class="post-title">翻译： ECMAScript 6 in WebKit</h1> <div class="post-meta"> <time>2016-05-22</time> <span class="meta-dot">·</span> <span>8 分钟阅读</span> </div> </header> <div class="post-body"> <h3 id="翻译自webkit-blog">翻译自<a href="https://webkit.org/blog/4054/es6-in-webkit/">Webkit blog</a></h3>
+<blockquote>
+<p>原作时间：Oct 13, 2015 by Saam Barati @saambarati
+翻译时间：Apr 11, 2016</p>
+</blockquote>
+<p><a href="http://www.ecma-international.org/ecma-262/6.0/index.html">ES6</a> 为JavaScript带来了许多新的有趣的特性。ES6总结了JavaScript过去的一些缺点，并且加入了一些更易于理解语义的新特性。<code>let</code>和<code>const</code>就是其中的例子，它们都是块级作用域的声明，所以不易导致像对<code>var</code>关键字作用域的错误理解这样的常见错误。ES6同样还包含一些使JavaScript idioms(译注: idioms,俗语)看上去更加自然的特性。举个例子， <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">箭头函数(arrow functions)</a>使得写出一个带有this词法的小函数变得简单了，这是JavaScript程序员经常做的。<code>class</code>关键字使得写出在程序中经常出现的面向对象的代码更加容易。<a href="http://www.2ality.com/2015/03/destructuring-algorithm.html">解构语法(Destructuring syntax)</a>有助于在足够大的JavaScript程序中消除样板式的代码。我们WebKit团队真的为ES6感到激动并且在努力地实现它，在 Safari 9  iOS 9 中你将可以使用一些不错的ES6特性:</p>
+<ul>
+<li>Classes</li>
+<li>Promises</li>
+<li>Map, Set, WeakMap, WeakSet, for…of loops</li>
+<li>Symbols</li>
+<li>和一些其他优秀的特性</li>
+</ul>
+<p>你可以运行最新的<a href="https://webkit.org/nightly/">WebKit nightly build</a>去尝试更多的ES6新特性。我们最近实现了：</p>
+<ul>
+<li>let, const, and class block scoping</li>
+<li>Much of the Reflect API</li>
+<li>A large part of the current module specification</li>
+<li>Tail calls</li>
+<li>Default parameter values</li>
+<li>Default destructuring values</li>
+<li>Arrow functions</li>
+<li>Some of the internationalization API</li>
+<li>更多</li>
+</ul>
+<p>如果你对我们的ES6实现感兴趣并且在尝试使用ES6，下载<a href="https://webkit.org/nightly/">WebKit nightly build</a>。你可以通过向我们报告你发现的bug来帮助我们修复bug。而且，如果你(对，就是你)愿意为Webkit加入一些新的特性又或者是修复一些bug，我很乐意帮你开始第一步。你可以联系我的twitter: <a href="https://twitter.com/saambarati">@saambarati</a>。你可以总是去打扰<a href="https://twitter.com/jonathandavis">@jonathandavis</a>，无论是什么问题。</p>
+<hr>
+<h3 id="翻译笔记">翻译笔记:</h3>
+<h4 id="1-关于块级作用域和函数级作用域的比较">1. 关于块级作用域和函数级作用域的比较</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#F97583">	let</span><span style="color:#E1E4E8"> a</span><span style="color:#F97583">=</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    var</span><span style="color:#E1E4E8"> b</span><span style="color:#F97583">=</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">a; </span><span style="color:#6A737D">// ReferenceError: a is not defined</span></span>
+<span class="line"><span style="color:#E1E4E8">b; </span><span style="color:#6A737D">//2</span></span></code></pre>
+<p>代码来自<a href="http://www.ruanyifeng.com/blog/2014/04/ecmascript_6_primer.html">es6标准入门</a></p>
+<p>node在ubuntu上启用支持es6<code>node --use-strict $(node --v8-options | grep harm | awk '{print $1}' | xargs) file.js</code></p>
+<h4 id="2-箭头函数">2. 箭头函数</h4>
+<p>本文中关于箭头函数的原文是：</p>
+<blockquote>
+<p>arrow functions make it easy to write small functions that have a lexically bound this;</p>
+</blockquote>
+<p>关于lexically this的解释</p>
+<blockquote>
+<p>Lexical this</p>
+</blockquote>
+<blockquote>
+<p>Until arrow functions, every new function defined its own this value (a new object in case of a constructor, undefined in strict mode function calls, the context object if the function is called as an “object method”, etc.). This proved to be annoying with an object-oriented style of programming.</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> Person</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">  // The Person() constructor defines `this` as an instance of itself.</span></span>
+<span class="line"><span style="color:#79B8FF">  this</span><span style="color:#E1E4E8">.age </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  setInterval</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">function</span><span style="color:#B392F0"> growUp</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">    // In non-strict mode, the growUp() function defines `this`</span></span>
+<span class="line"><span style="color:#6A737D">    // as the global object, which is different from the `this`</span></span>
+<span class="line"><span style="color:#6A737D">    // defined by the Person() constructor.</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.age</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }, </span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">var</span><span style="color:#E1E4E8"> p </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Person</span><span style="color:#E1E4E8">();</span><span style="color:#9ECBFF">```</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9ECBFF">>In ECMAScript 3/5, this issue was fixed by assigning the value in this to a variable that could be closed over.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9ECBFF">```</span><span style="color:#E1E4E8">js</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> Person</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">  var</span><span style="color:#E1E4E8"> self </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">// Some choose `that` instead of `self`.</span></span>
+<span class="line"><span style="color:#6A737D">                   // Choose one and be consistent.</span></span>
+<span class="line"><span style="color:#E1E4E8">  self.age </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  setInterval</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">function</span><span style="color:#B392F0"> growUp</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">    // The callback refers to the `self` variable of which</span></span>
+<span class="line"><span style="color:#6A737D">    // the value is the expected object.</span></span>
+<span class="line"><span style="color:#E1E4E8">    self.age</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }, </span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<blockquote>
+<p>Alternatively, a bound function could be created so that the proper this value would be passed to the growUp() function.</p>
+</blockquote>
+<blockquote>
+<p>Arrow functions capture the this value of the enclosing context, so the following code works as expected.</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> Person</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line"><span style="color:#79B8FF">  this</span><span style="color:#E1E4E8">.age </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  setInterval</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.age</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">// |this| properly refers to the person object</span></span>
+<span class="line"><span style="color:#E1E4E8">  }, </span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">var</span><span style="color:#E1E4E8"> p </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Person</span><span style="color:#E1E4E8">();</span></span></code></pre>
+<h3 id="3-解构型语法一例">3. 解构型语法一例</h3>
+<p><code>let [x, y] = ['a', 'b']; // x = 'a'; y = 'b'</code></p> </div> </article> <script src="/vendor/vendor.js"></script>  </main> <!-- ── Footer ── --> <footer class="site-footer"> <div class="footer-inner"> <span>&copy; 2026 konglx90</span> <div class="footer-links"> <a href="https://github.com/konglx90" target="_blank">GitHub</a> <a href="https://www.douban.com/people/103562367/" target="_blank">豆瓣</a> </div> </div> </footer>  </body> </html> 

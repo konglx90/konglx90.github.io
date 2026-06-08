@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><title>REST API 设计 · konglx90</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="设计简洁易懂的API对前后端的同学都是极有好处的，对后端同学来说，简洁的设计可以减少本就复杂的API设计及与前端同学交流沟通的成本， 而对前端同学来说，易于理解的API是提高编程效率的手段之一"><meta name="author" content="Konglx90"><link rel="icon" href="/favicon.ico"><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"><style>.site-nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}.nav-inner{max-width:var(--content-max);margin:0 auto;padding:0 24px;height:var(--nav-height);display:flex;align-items:center;justify-content:space-between}.nav-logo{font-size:1.125rem;font-weight:700;letter-spacing:-.02em}.nav-links{display:flex;gap:4px}.nav-links a{padding:6px 14px;border-radius:9999px;font-size:.875rem;font-weight:500;color:var(--text-secondary);transition:all .2s}.nav-links a:hover{color:var(--text);background:var(--surface-hover)}.nav-links a.active{color:var(--accent);background:var(--accent-subtle)}.site-footer{margin-top:100px;border-top:1px solid var(--border)}.footer-inner{max-width:var(--content-max);margin:0 auto;padding:32px 24px;display:flex;justify-content:space-between;align-items:center;font-size:.875rem;color:var(--text-muted)}.footer-links{display:flex;gap:20px}.footer-links a{color:var(--text-secondary);font-size:.875rem}@media(max-width:640px){.nav-inner{padding:0 16px}.footer-inner{flex-direction:column;gap:12px;text-align:center}}main{min-height:calc(100vh - var(--nav-height) - 100px)}:root{--font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;--font-mono: "SF Mono", "Fira Code", "JetBrains Mono", "Roboto Mono", "Source Code Pro", Consolas, monospace;--bg: #f8f7f4;--surface: #ffffff;--surface-hover: #fafaf9;--text: #1c1917;--text-secondary: #78716c;--text-muted: #a8a29e;--accent: #e11d48;--accent-hover: #be123c;--accent-subtle: #fef2f2;--border: #e7e5e4;--shadow-sm: 0 1px 2px rgba(0,0,0,.04);--shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);--shadow-lg: 0 4px 12px rgba(0,0,0,.06);--radius: 12px;--radius-sm: 8px;--nav-height: 56px;--content-max: 720px}@media(prefers-color-scheme:dark){:root{--bg: #0c0a09;--surface: #1c1917;--surface-hover: #292524;--text: #e7e5e4;--text-secondary: #a8a29e;--text-muted: #78716c;--accent: #fb7185;--accent-hover: #fda4af;--accent-subtle: #1c1917;--border: #292524;--shadow-sm: 0 1px 2px rgba(0,0,0,.2);--shadow: 0 1px 3px rgba(0,0,0,.3);--shadow-lg: 0 4px 12px rgba(0,0,0,.4)}}*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--font-sans);font-size:16px;line-height:1.75;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{color:var(--text);text-decoration:none;transition:color .2s}a:hover{color:var(--accent)}img{max-width:100%;height:auto;display:block}::selection{background:var(--accent);color:#fff}
+.post-full{margin:0 auto;padding:0 24px 80px}.post-head{width:100%;padding:48px 0 32px;border-bottom:1px solid var(--border);margin-bottom:0}.post-cat{display:inline-block;font-size:.8rem;font-weight:600;color:var(--accent);background:var(--accent-subtle);padding:3px 12px;border-radius:9999px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.04em}.post-cat:hover{color:var(--accent-hover)}.post-head .post-title{font-size:2rem;font-weight:800;line-height:1.3;letter-spacing:-.02em;margin:0}.post-meta{margin-top:12px;font-size:.875rem;color:var(--text-muted);font-family:var(--font-mono)}.meta-dot{margin:0 6px}.post-body{flex:1;min-width:0;max-width:var(--content-max);padding-top:32px}.post-body h2{font-size:1.5rem;font-weight:700;margin:2.5em 0 .8em;line-height:1.3;letter-spacing:-.01em}.post-body h3{font-size:1.2rem;font-weight:600;margin:2em 0 .6em;line-height:1.4}.post-body h4{font-weight:600;margin:1.5em 0 .5em}.post-body p{margin-bottom:1.5em;line-height:1.8;color:var(--text)}.post-body a{color:var(--accent);border-bottom:1px solid transparent}.post-body a:hover{border-bottom-color:var(--accent)}.post-body ul,.post-body ol{margin-bottom:1.5em;padding-left:1.5em}.post-body ul li{list-style:disc;margin-bottom:.3em;line-height:1.8}.post-body ol li{list-style:decimal;margin-bottom:.3em;line-height:1.8}.post-body blockquote{margin:2em 0;padding:1em 1.5em;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:.95rem;color:var(--text-secondary);font-style:italic}.post-body hr{margin:3em 0;border:none;height:1px;background:var(--border)}.post-body img{margin:2em auto;border-radius:var(--radius);box-shadow:var(--shadow)}.post-body table{width:100%;border-collapse:collapse;margin-bottom:1.5em;font-size:.9rem}.post-body th,.post-body td{border:1px solid var(--border);padding:.5em .75em;text-align:left}.post-body th{background:var(--surface-hover);font-weight:600}.post-body code{font-family:var(--font-mono);background:var(--surface-hover);border:1px solid var(--border);padding:.15em .45em;border-radius:4px;font-size:.85em}.post-body pre{font-family:var(--font-mono);background:#1a1a2e;color:#e4e4e7;padding:1.25rem 1.5rem;overflow-x:auto;margin:2em 0;font-size:.85rem;line-height:1.65;border-radius:var(--radius);border:1px solid #2a2a3e;tab-size:2}.post-body pre code{background:transparent;border:none;padding:0;color:inherit;font-size:inherit}@media(prefers-color-scheme:dark){.post-body pre{background:#000;border-color:var(--border)}}width: 240px; flex-shrink: 0; position: sticky; top: calc(var(--nav-height) + 32px); padding-top: 32px; } .sidebar-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}.sidebar-block h3{font-size:.85rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}.sidebar-block ul{display:flex;flex-direction:column;gap:8px}.sidebar-block a{font-size:.85rem;color:var(--text-secondary);line-height:1.4;display:block}.sidebar-block a:hover{color:var(--accent)}@media(max-width:900px){.post-sidebar{display:none}.post-full{padding:0 16px 60px}.post-head .post-title{font-size:1.6rem}.post-head{padding:32px 0 24px}}.fixed-clock{position:fixed;bottom:24px;right:24px;background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:6px 16px;box-shadow:var(--shadow-lg);font-family:var(--font-mono);font-size:.85rem;font-weight:600;z-index:100;letter-spacing:1px;font-variant-numeric:tabular-nums;color:var(--text-secondary);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}.fixed-clock:hover{color:var(--accent);border-color:var(--accent)}@media(max-width:640px){.fixed-clock{bottom:12px;right:12px;padding:4px 12px;font-size:.8rem}}
+</style></head> <body> <!-- ── Navigation ── --> <header class="site-nav"> <div class="nav-inner"> <a href="/" class="nav-logo">Konglx</a> <nav class="nav-links"> <a href="/" class>Blog</a> <a href="/opinion" class>Opinion</a> <a href="/project" class>Project</a> </nav> </div> </header> <main>  <article class="post-full"> <header class="post-head"> <a href="/" class="post-cat">Blog</a> <h1 class="post-title">REST API 设计</h1> <div class="post-meta"> <time>2016-05-28</time> <span class="meta-dot">·</span> <span>6 分钟阅读</span> </div> </header> <div class="post-body"> <p>设计简洁易懂的API对前后端的同学都是极有好处的，对后端同学来说，简洁的设计可以减少本就复杂的API设计及与前端同学交流沟通的成本， 而对前端同学来说，易于理解的API是提高编程效率的手段之一。</p>
+<h2 id="规避api设计误区">规避API设计误区</h2>
+<p>我们在设计API设计的时候经常忽略掉的一个问题就是API之前缺少关联性。
+例如：
+如果想获得商品列表， 通过AJAX请求<code>GET /categories</code>；
+如果想获取某个分类中的商品<code>GET /getProductListFromCate?category_id=id </code>；
+如果想获取多个分类中的商品， 要使用<code>GET /productInCategories?values=id_1, id_2,...id_n</code>；
+如果保存商品的描述，要使用<code>POST /product</code>， 同时在请求总体(body)中添加大量的JSON数据；
+可能你已经习惯了这样的API设计，可这样的设计的有些怎么样的缺点呢：</p>
+<ul>
+<li>不同的请求可能会出现不同的命名约定，有的端点重复了的get方法(命名里get 和 GET请求的重复)，有的端点使用驼峰式，有的端点使用的是连字符， 有的使用下划线。总之， 这样导致网站可能出现风格不一致的API，即使团队严格保存一致的风格，不同的团队之间的习惯不同也会使网络上的url出现不一致的重复。</li>
+<li>不知道何时该使用HTTP方法(HEAD，GET，POST，PUT，PATCH或者DELETE)，于是只使用了GET/POST。</li>
+<li>没有明确区分查询参数与请求主体，GET/POST的混用，GET请求用于修改，如<code>GET /saveProduct?id=12</code>。这样的用法违背GET与POST的原来的分工。我们可以用简洁的<code>POST /product</code>来代替。</li>
+<li>API的一致性。</li>
+</ul>
+<h3 id="rest">REST</h3>
+<blockquote>
+<p><strong>具象状态传输</strong>（英文：<strong>Representational State Transfer</strong>，简称<strong>REST</strong>）是<a href="https://zh.wikipedia.org/w/index.php?title=Roy_Thomas_Fielding&#x26;action=edit&#x26;redlink=1">Roy Thomas Fielding</a>博士于2000年在他的博士论文 “Architectural Styles and the Design of Network-based Software Architectures” 中提出来的一种<a href="https://zh.wikipedia.org/wiki/%E4%B8%87%E7%BB%B4%E7%BD%91">万维网</a><a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84">软件架构</a>风格。
+需要注意的是，REST是设计风格而<strong>不是</strong>标准。REST通常基于使用<a href="https://zh.wikipedia.org/wiki/HTTP">HTTP</a>，<a href="https://zh.wikipedia.org/wiki/URI">URI</a>，和<a href="https://zh.wikipedia.org/wiki/XML">XML</a>以及<a href="https://zh.wikipedia.org/wiki/HTML">HTML</a>这些现有的广泛流行的协议和标准。</p>
+</blockquote>
+<ul>
+<li><strong>资源</strong>是由URI来指定。</li>
+<li>对资源的操作包括获取、创建、修改和删除资源，这些操作正好对应HTTP协议提供的GET、POST、PUT和DELETE方法。</li>
+<li>通过操作资源的表现形式来操作资源。</li>
+<li>资源的表现形式则是XML或者HTML，取决于读者是机器还是人，是消费web服务的客户软件还是web浏览器。当然也可以是任何其他的格式。</li>
+</ul>
+<p>从百科上的定义我们可以看到一个很明显的事实，即资源的重要性。在REST中，<strong>资源</strong>是一切信息的抽象。请牢记这一点。</p>
+<h3 id="基于rest的api设计的通用指导规范">基于REST的API设计的通用指导规范</h3>
+<h4 id="1-端点的名称">1. 端点的名称</h4>
+<p>除前缀的域名外的部分</p>
+<ul>
+<li>全部小写，使用连字符，如<code>api/verification-tokens</code>，小写既是出于习惯，也是出于可读性。而连字符既是为了可读性，也是为了对url操作的方便，比如前端要取出第一个词只需要<code>url.split("/")[len-1].split("-")[0]</code>，或者可以称之为“可编程性”。</li>
+<li>使用一或两个词描述资源。</li>
+<li>资源一定要使用复数，使用<code>api/users</code>，而不是<code>api/user</code>。符合语义。</li>
+</ul>
+<h4 id="2-http方法与crud操作的对应关系">2. HTTP方法与CRUD操作的对应关系</h4>
+<p><strong>一个极端的例子，如果你的网站有删除的功能，并且使用的是GET方法，那么你的网站将有风险会被爬虫删除网站里的内容。</strong></p>
+<p>一些典型的设计</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>方法</th><th align="center">端点</th><th align="right">说明</th></tr></thead><tbody><tr><td>GET</td><td align="center">/products</td><td align="right">获取一系列商品</td></tr><tr><td>GET</td><td align="center">/products/:id</td><td align="right">通过id获取某个商品</td></tr><tr><td>GET</td><td align="center">/products/:id/parts</td><td align="right">获取某个商品的某个部件</td></tr><tr><td>PUT</td><td align="center">/products/:id/parts</td><td align="right">为某个商品添加一个新部件</td></tr><tr><td>DELETE</td><td align="center">/products/:id</td><td align="right">删除某个指定id的商品</td></tr><tr><td>PUT</td><td align="center">/products</td><td align="right">添加一个新商品</td></tr><tr><td>HEAD</td><td align="center">/products/:id</td><td align="right">通过状态码(200 或者 404)判断指定商品是否存在</td></tr><tr><td>PATCH</td><td align="center">/products/:id</td><td align="right">编辑指定id对应的商品</td></tr><tr><td>POST</td><td align="center">/auth/login</td><td align="right">多数其他的应该使用POST方法</td></tr></tbody></table>
+<h3 id="为api编写文档">为API编写文档</h3>
+<ul>
+<li>说明响应的结果</li>
+<li>演示报告错误的方式</li>
+<li>概述认证、分页、限流、缓存的工作方式</li>
+<li>详细说明每个端点、查询这些端点要使用哪个HTTP方法，请求中应该包含的每个数据，以及可能出现的响应字段。</li>
+</ul>
+<p>可以学习一下<a href="https://developer.github.com/v3/">github</a>的api。</p> </div> </article> <script src="/vendor/vendor.js"></script>  </main> <!-- ── Footer ── --> <footer class="site-footer"> <div class="footer-inner"> <span>&copy; 2026 konglx90</span> <div class="footer-links"> <a href="https://github.com/konglx90" target="_blank">GitHub</a> <a href="https://www.douban.com/people/103562367/" target="_blank">豆瓣</a> </div> </div> </footer>  </body> </html> 
