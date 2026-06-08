@@ -1,9 +1,2 @@
 #!/bin/sh
-echo "📦 Building site..."
-npm run build
-if [ $? -ne 0 ]; then
-  echo "❌ Build failed, commit aborted"
-  exit 1
-fi
-git add docs/
-echo "✅ Build OK, docs/ staged"
+# 如果想在本地预览，手动执行 npm run build

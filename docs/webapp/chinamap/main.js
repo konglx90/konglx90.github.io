@@ -1,1 +1,0 @@
-requirejs.config({paths:{json:"bower_components/requirejs-json/json",text:"bower_components/requirejs-text/text"}}),define("jquery",[],function(){return window.jQuery}),requirejs(["jquery","src/app"],function(e,r){r.draw()});
