@@ -5,6 +5,4 @@ if [ $? -ne 0 ]; then
   echo "❌ Build failed, commit aborted"
   exit 1
 fi
-# 把构建产物自动加到 commit 里
-git add docs/
-echo "✅ Build OK, committing..."
+echo "✅ Build OK"

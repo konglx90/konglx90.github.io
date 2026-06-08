@@ -5,10 +5,9 @@ import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
   post: CollectionEntry<'posts'>;
-  recentPosts: CollectionEntry<'posts'>[];
 }
 
-const { post, recentPosts } = Astro.props;
+const { post } = Astro.props;
 const { Content } = await post.render();
 const cats = { blog: 'Blog', opinion: 'Opinion', project: 'Project' };
 const catSlugs = { blog: '/', opinion: '/opinion', project: '/project' };
@@ -30,16 +29,7 @@ const catSlugs = { blog: '/', opinion: '/opinion', project: '/project' };
       <Content />
     </div>
 
-    <aside class="post-sidebar">
-      <div class="sidebar-block">
-        <h3>Recent</h3>
-        <ul>
-          {recentPosts.slice(0, 10).map(p => (
-            <li><a href={`/${p.slug}`}>{p.data.title}</a></li>
-          ))}
-        </ul>
-      </div>
-    </aside>
+
   </article>
 
   <Clock client:load />
@@ -47,13 +37,8 @@ const catSlugs = { blog: '/', opinion: '/opinion', project: '/project' };
 
 <style is:global>
   .post-full {
-    max-width: calc(var(--content-max) + 280px);
     margin: 0 auto;
     padding: 0 24px 80px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: flex-start;
   }
 
   /* ── Post Header ── */
@@ -192,8 +177,6 @@ const catSlugs = { blog: '/', opinion: '/opinion', project: '/project' };
     .post-body pre { background: #000000; border-color: var(--border); }
   }
 
-  /* ── Sidebar ── */
-  .post-sidebar {
     width: 240px;
     flex-shrink: 0;
     position: sticky;
