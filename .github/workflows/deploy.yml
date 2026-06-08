@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm config set registry https://registry.npmmirror.com/
-          npm ci --loglevel verbose
+          npm ci --no-audit --no-fund --loglevel verbose
 
       - run: npm run build
 

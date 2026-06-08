@@ -69,3 +69,9 @@ push 到 `main` 分支后，GitHub Actions 自动：
 - 自动暗色模式（跟随系统）
 - 文章 slug 使用完整文件名（含日期前缀）
 - 如需保持旧博客 `:title` 格式的 URL，需添加重定向
+
+## ⚠️ 重要：npm 源配置
+
+本地 `~/.npmrc` 配置了阿里内网源 `anpm.alibaba-inc.com`，但 **GitHub Actions Runner 在公网，无法访问内网源**。
+
+workflow 中已添加 `npm config set registry https://registry.npmmirror.com/` 在 `npm ci` 前覆盖 registry。如果将来更换 CI 平台或改 registry，注意保持此配置。
