@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><title>JavaScript 代码规范 · konglx90</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Konglx90's Blog"><meta name="author" content="Konglx90"><link rel="icon" href="/favicon.ico"><link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml"><style>.site-nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}.nav-inner{max-width:var(--content-max);margin:0 auto;padding:0 24px;height:var(--nav-height);display:flex;align-items:center;justify-content:space-between}.nav-logo{font-size:1.125rem;font-weight:700;letter-spacing:-.02em}.nav-links{display:flex;gap:4px}.nav-links a{padding:6px 14px;border-radius:9999px;font-size:.875rem;font-weight:500;color:var(--text-secondary);transition:all .2s}.nav-links a:hover{color:var(--text);background:var(--surface-hover)}.nav-links a.active{color:var(--accent);background:var(--accent-subtle)}.site-footer{margin-top:100px;border-top:1px solid var(--border)}.footer-inner{max-width:var(--content-max);margin:0 auto;padding:32px 24px;display:flex;justify-content:space-between;align-items:center;font-size:.875rem;color:var(--text-muted)}.footer-links{display:flex;gap:20px}.footer-links a{color:var(--text-secondary);font-size:.875rem}@media(max-width:640px){.nav-inner{padding:0 16px}.footer-inner{flex-direction:column;gap:12px;text-align:center}}main{min-height:calc(100vh - var(--nav-height) - 100px)}:root{--font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;--font-mono: "SF Mono", "Fira Code", "JetBrains Mono", "Roboto Mono", "Source Code Pro", Consolas, monospace;--bg: #f8f7f4;--surface: #ffffff;--surface-hover: #fafaf9;--text: #1c1917;--text-secondary: #78716c;--text-muted: #a8a29e;--accent: #e11d48;--accent-hover: #be123c;--accent-subtle: #fef2f2;--border: #e7e5e4;--shadow-sm: 0 1px 2px rgba(0,0,0,.04);--shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);--shadow-lg: 0 4px 12px rgba(0,0,0,.06);--radius: 12px;--radius-sm: 8px;--nav-height: 56px;--content-max: 720px}@media(prefers-color-scheme:dark){:root{--bg: #0c0a09;--surface: #1c1917;--surface-hover: #292524;--text: #e7e5e4;--text-secondary: #a8a29e;--text-muted: #78716c;--accent: #fb7185;--accent-hover: #fda4af;--accent-subtle: #1c1917;--border: #292524;--shadow-sm: 0 1px 2px rgba(0,0,0,.2);--shadow: 0 1px 3px rgba(0,0,0,.3);--shadow-lg: 0 4px 12px rgba(0,0,0,.4)}}*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--font-sans);font-size:16px;line-height:1.75;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{color:var(--text);text-decoration:none;transition:color .2s}a:hover{color:var(--accent)}img{max-width:100%;height:auto;display:block}::selection{background:var(--accent);color:#fff}
+.post-full{max-width:calc(var(--content-max) + 280px);margin:0 auto;padding:0 24px 80px;display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start}.post-head{width:100%;padding:48px 0 32px;border-bottom:1px solid var(--border);margin-bottom:0}.post-cat{display:inline-block;font-size:.8rem;font-weight:600;color:var(--accent);background:var(--accent-subtle);padding:3px 12px;border-radius:9999px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.04em}.post-cat:hover{color:var(--accent-hover)}.post-head .post-title{font-size:2rem;font-weight:800;line-height:1.3;letter-spacing:-.02em;margin:0}.post-meta{margin-top:12px;font-size:.875rem;color:var(--text-muted);font-family:var(--font-mono)}.meta-dot{margin:0 6px}.post-body{flex:1;min-width:0;max-width:var(--content-max);padding-top:32px}.post-body h2{font-size:1.5rem;font-weight:700;margin:2.5em 0 .8em;line-height:1.3;letter-spacing:-.01em}.post-body h3{font-size:1.2rem;font-weight:600;margin:2em 0 .6em;line-height:1.4}.post-body h4{font-weight:600;margin:1.5em 0 .5em}.post-body p{margin-bottom:1.5em;line-height:1.8;color:var(--text)}.post-body a{color:var(--accent);border-bottom:1px solid transparent}.post-body a:hover{border-bottom-color:var(--accent)}.post-body ul,.post-body ol{margin-bottom:1.5em;padding-left:1.5em}.post-body ul li{list-style:disc;margin-bottom:.3em;line-height:1.8}.post-body ol li{list-style:decimal;margin-bottom:.3em;line-height:1.8}.post-body blockquote{margin:2em 0;padding:1em 1.5em;border-left:3px solid var(--accent);background:var(--surface);border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:.95rem;color:var(--text-secondary);font-style:italic}.post-body hr{margin:3em 0;border:none;height:1px;background:var(--border)}.post-body img{margin:2em auto;border-radius:var(--radius);box-shadow:var(--shadow)}.post-body table{width:100%;border-collapse:collapse;margin-bottom:1.5em;font-size:.9rem}.post-body th,.post-body td{border:1px solid var(--border);padding:.5em .75em;text-align:left}.post-body th{background:var(--surface-hover);font-weight:600}.post-body code{font-family:var(--font-mono);background:var(--surface-hover);border:1px solid var(--border);padding:.15em .45em;border-radius:4px;font-size:.85em}.post-body pre{font-family:var(--font-mono);background:#1a1a2e;color:#e4e4e7;padding:1.25rem 1.5rem;overflow-x:auto;margin:2em 0;font-size:.85rem;line-height:1.65;border-radius:var(--radius);border:1px solid #2a2a3e;tab-size:2}.post-body pre code{background:transparent;border:none;padding:0;color:inherit;font-size:inherit}@media(prefers-color-scheme:dark){.post-body pre{background:#000;border-color:var(--border)}}.post-sidebar{width:240px;flex-shrink:0;position:sticky;top:calc(var(--nav-height) + 32px);padding-top:32px}.sidebar-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}.sidebar-block h3{font-size:.85rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}.sidebar-block ul{display:flex;flex-direction:column;gap:8px}.sidebar-block a{font-size:.85rem;color:var(--text-secondary);line-height:1.4;display:block}.sidebar-block a:hover{color:var(--accent)}@media(max-width:900px){.post-sidebar{display:none}.post-full{padding:0 16px 60px}.post-head .post-title{font-size:1.6rem}.post-head{padding:32px 0 24px}}.fixed-clock{position:fixed;bottom:24px;right:24px;background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:6px 16px;box-shadow:var(--shadow-lg);font-family:var(--font-mono);font-size:.85rem;font-weight:600;z-index:100;letter-spacing:1px;font-variant-numeric:tabular-nums;color:var(--text-secondary);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}.fixed-clock:hover{color:var(--accent);border-color:var(--accent)}@media(max-width:640px){.fixed-clock{bottom:12px;right:12px;padding:4px 12px;font-size:.8rem}}
+</style></head> <body> <!-- ── Navigation ── --> <header class="site-nav"> <div class="nav-inner"> <a href="/" class="nav-logo">Konglx</a> <nav class="nav-links"> <a href="/" class>Blog</a> <a href="/opinion" class>Opinion</a> <a href="/project" class>Project</a> </nav> </div> </header> <main>  <article class="post-full"> <header class="post-head"> <a href="/" class="post-cat">Blog</a> <h1 class="post-title">JavaScript 代码规范</h1> <div class="post-meta"> <time>2016-07-02</time> <span class="meta-dot">·</span> <span>13 分钟阅读</span> </div> </header> <div class="post-body"> <ul>
+<li>[1.0] 对常量使用const、对普通变量使用let代替var</li>
+</ul>
+<blockquote>
+<p>const 和 let都是块级作用域</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// const 和 let 只存在于它们被定义的区块内。</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> a </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> b</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(a); </span><span style="color:#6A737D">// ReferenceError</span></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(b); </span><span style="color:#6A737D">// ReferenceError</span></span></code></pre>
+<h3 id="array">Array</h3>
+<ul>
+<li>[2.1] 使用字面值创建数组</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> items</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Array</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// good</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> items</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [];</span></span></code></pre>
+<ul>
+<li>[2.2] 使用数组的push方法, 而不是直接直接添加</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> someStack</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#E1E4E8">someStack[someStack.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'abracadabra'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// good</span></span>
+<span class="line"><span style="color:#E1E4E8">someStack.</span><span style="color:#B392F0">push</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'abracadabra'</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<ul>
+<li>[2.3] 使用…复制数组</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> len</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> items.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> itemsCopy</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [];</span></span>
+<span class="line"><span style="color:#F97583">let</span><span style="color:#E1E4E8"> i;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> (i </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">; i </span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8"> len; i</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#E1E4E8">  itemsCopy[i] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> items[i];</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// good</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> itemsCopy</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#F97583">...</span><span style="color:#E1E4E8">items];</span></span></code></pre>
+<h3 id="strings">Strings</h3>
+<ul>
+<li>[3.1] 使用单引号”代替双引号"", 因为HTML使用双引号</li>
+</ul>
+<h3 id="function">Function</h3>
+<ul>
+<li>[4.1] 使用函数声明而不是函数表达式</li>
+</ul>
+<blockquote>
+<p>为什么?因为函数声明是可命名的,所以他们在调用栈中更容易被识别。此外,函数声明会把整个
+函数提升(hoisted),而函数表达式只会把函数的引用变量名提升。这条规则使得箭头函数可以
+取代函数表达式。</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> foo</span><span style="color:#F97583"> =</span><span style="color:#F97583"> function</span><span style="color:#E1E4E8"> () {</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// good</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> foo</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<ul>
+<li>
+<p>[4.2] 永远不要在一个非函数代码块( if 、 while 等)中声明一个函数,把那个函数赋给一个变量。浏
+览器允许你这么做,但它们的解析表现不一致。</p>
+</li>
+<li>
+<p>[4.3] 不要使用 arguments 。可以选择 rest 语法 … 替代</p>
+</li>
+<li>
+<p>[4.4] 直接给函数的参数指定默认值,不要使用一个变化的函数参数</p>
+</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// really bad</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> handleThings</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">opts</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">  // No! We shouldn't mutate function arguments.</span></span>
+<span class="line"><span style="color:#6A737D">  // Double bad: if opts is falsy it'll be set to an object which may</span></span>
+<span class="line"><span style="color:#6A737D">  // be what you want but it can introduce subtle bugs.</span></span>
+<span class="line"><span style="color:#E1E4E8">  opts </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> opts </span><span style="color:#F97583">||</span><span style="color:#E1E4E8"> {};</span></span>
+<span class="line"><span style="color:#6A737D">  // ...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// still bad</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> handleThings</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">opts</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (opts </span><span style="color:#F97583">===</span><span style="color:#F97583"> void</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#E1E4E8">    opts </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {};</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#6A737D">  // ...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// good</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> handleThings</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">opts</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {}) {</span></span>
+<span class="line"><span style="color:#6A737D">  // ...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="properties">Properties</h3>
+<ul>
+<li>[5.1] 使用点操作符获取属性(可读性)</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> luke</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">  jedi: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  age: </span><span style="color:#79B8FF">28</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> isJedi</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> luke[</span><span style="color:#9ECBFF">'jedi'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// good</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> isJedi</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> luke.jedi;</span></span></code></pre>
+<ul>
+<li>[5.2] 当通过变量访问属性时使用中括号 [] (可用性)</li>
+</ul>
+<p>避免类似<code>no-name</code>、<code>2</code>等属性</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> luke</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">  jedi: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  age: </span><span style="color:#79B8FF">28</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> getProp</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">prop</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> luke[prop];</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> isJedi</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> getProp</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'jedi'</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<h3 id="hoisting">Hoisting</h3>
+<p><a href="http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html">JavaScript Scoping and Hoisting</a></p>
+<ul>
+<li>[6.1] var 声明会被提升至该作用域的顶部,但它们赋值不会提升。 let 和 const 被赋予了一种称为
+「暂时性死区(Temporal Dead Zones, TDZ) 」的概念。这对于了解为什么 type of 不再安全相当
+重要。</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// we know this wouldn't work (assuming there</span></span>
+<span class="line"><span style="color:#6A737D">// is no notDefined global variable)</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> example</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">  console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(notDefined); </span><span style="color:#6A737D">// => throws a ReferenceError</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// creating a variable declaration after you</span></span>
+<span class="line"><span style="color:#6A737D">// reference the variable will work due to</span></span>
+<span class="line"><span style="color:#6A737D">// variable hoisting. Note: the assignment</span></span>
+<span class="line"><span style="color:#6A737D">// value of `true` is not hoisted.</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> example</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">  console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(declaredButNotAssigned); </span><span style="color:#6A737D">// => undefined</span></span>
+<span class="line"><span style="color:#F97583">  var</span><span style="color:#E1E4E8"> declaredButNotAssigned </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// the interpreter is hoisting the variable</span></span>
+<span class="line"><span style="color:#6A737D">// declaration to the top of the scope,</span></span>
+<span class="line"><span style="color:#6A737D">// which means our example could be rewritten as:</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> example</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> declaredButNotAssigned;</span></span>
+<span class="line"><span style="color:#E1E4E8">  console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(declaredButNotAssigned); </span><span style="color:#6A737D">// => undefined</span></span>
+<span class="line"><span style="color:#E1E4E8">  declaredButNotAssigned </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// using const and let</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> example</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">  console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(declaredButNotAssigned); </span><span style="color:#6A737D">// => throws a ReferenceError</span></span>
+<span class="line"><span style="color:#E1E4E8">  console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8"> declaredButNotAssigned); </span><span style="color:#6A737D">// => throws a ReferenceError</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> declaredButNotAssigned</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<ul>
+<li>[6.2] 匿名函数表达式的变量名会被提升,但函数内容并不会</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> example</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">  console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(anonymous); </span><span style="color:#6A737D">// => undefined</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  anonymous</span><span style="color:#E1E4E8">(); </span><span style="color:#6A737D">// => TypeError anonymous is not a function</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  var</span><span style="color:#B392F0"> anonymous</span><span style="color:#F97583"> =</span><span style="color:#F97583"> function</span><span style="color:#E1E4E8"> () {</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'anonymous function expression'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  };</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<ul>
+<li>[6.3] 命名的函数表达式的变量名会被提升,但函数名和函数函数内容并不会</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> example</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">  console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(named); </span><span style="color:#6A737D">// => undefined</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  named</span><span style="color:#E1E4E8">(); </span><span style="color:#6A737D">// => TypeError named is not a function</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  superPower</span><span style="color:#E1E4E8">(); </span><span style="color:#6A737D">// => ReferenceError superPower is not defined</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  var</span><span style="color:#B392F0"> named</span><span style="color:#F97583"> =</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> superPower</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Flying'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  };</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// the same is true when the function name</span></span>
+<span class="line"><span style="color:#6A737D">// is the same as the variable name.</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> example</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">  console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(named); </span><span style="color:#6A737D">// => undefined</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  named</span><span style="color:#E1E4E8">(); </span><span style="color:#6A737D">// => TypeError named is not a function</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  var</span><span style="color:#B392F0"> named</span><span style="color:#F97583"> =</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> named</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'named'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<ul>
+<li>[6.4] 函数声明的名称和函数体都会被提升</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>function example() {</span></span>
+<span class="line"><span>  superPower(); // => Flying</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>  function superPower() {</span></span>
+<span class="line"><span>    console.log('Flying');</span></span>
+<span class="line"><span>  }</span></span>
+<span class="line"><span>}</span></span></code></pre>
+<h3 id="comparison-operators--equality">Comparison Operators &#x26; Equality</h3>
+<ul>
+<li>
+<p>[7.1]  Use === and !== over == and !=</p>
+</li>
+<li>
+<p>[7.2] 条件表达式例如 if 语句通过抽象方法 ToBoolean 强制计算它们的表达式并且总是遵守下面的
+规则:</p>
+<ul>
+<li>Objects evaluate to true</li>
+<li>Undefined evaluates to false</li>
+<li>Null evaluates to false</li>
+<li>Booleans evaluate to the value of the boolean</li>
+<li>Numbers evaluate to false if +0, -0, or NaN, otherwise true</li>
+<li>Strings evaluate to false if an empty string ”, otherwise true</li>
+</ul>
+</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> ([</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> []) {</span></span>
+<span class="line"><span style="color:#6A737D">  // true</span></span>
+<span class="line"><span style="color:#6A737D">  // an array (even an empty one) is an object, objects will evaluate to true</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<ul>
+<li>[7.3] Use shortcuts</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (name </span><span style="color:#F97583">!==</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">  // ...stuff...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// good</span></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (name) {</span></span>
+<span class="line"><span style="color:#6A737D">  // ...stuff...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (collection.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> ></span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">  // ...stuff...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// good</span></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (collection.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">  // ...stuff...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="comments">Comments</h3>
+<ul>
+<li>[8.1] Use <code>/** ... */</code> for multi-line comments. Include a description, specify types and values for all parameters and return values.</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#6A737D">// make() returns a new element</span></span>
+<span class="line"><span style="color:#6A737D">// based on the passed in tag name</span></span>
+<span class="line"><span style="color:#6A737D">//</span></span>
+<span class="line"><span style="color:#6A737D">// @param {String} tag</span></span>
+<span class="line"><span style="color:#6A737D">// @return {Element} element</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> make</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">tag</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  // ...stuff...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> element;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// good</span></span>
+<span class="line"><span style="color:#6A737D">/**</span></span>
+<span class="line"><span style="color:#6A737D"> * make() returns a new element</span></span>
+<span class="line"><span style="color:#6A737D"> * based on the passed in tag name</span></span>
+<span class="line"><span style="color:#6A737D"> *</span></span>
+<span class="line"><span style="color:#6A737D"> * </span><span style="color:#F97583">@param</span><span style="color:#B392F0"> {String}</span><span style="color:#E1E4E8"> tag</span></span>
+<span class="line"><span style="color:#6A737D"> * </span><span style="color:#F97583">@return</span><span style="color:#B392F0"> {Element}</span><span style="color:#6A737D"> element</span></span>
+<span class="line"><span style="color:#6A737D"> */</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> make</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">tag</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  // ...stuff...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> element;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<ul>
+<li>[8.2] Use // FIXME: to annotate problems.</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Calculator</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> Abacus</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#79B8FF">    super</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    // FIXME: shouldn't use a global here</span></span>
+<span class="line"><span style="color:#E1E4E8">    total </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<ul>
+<li>[8.3] Use // TODO: to annotate solutions to problems.</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Calculator</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> Abacus</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#79B8FF">    super</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    // TODO: total should be configurable by an options param</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.total </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="type-casting--coercion">Type Casting &#x26; Coercion</h3>
+<ul>
+<li>[9.1] Strings:</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// => this.reviewScore = 9;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> totalScore</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.reviewScore </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">// invokes this.reviewScore.valueOf()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> totalScore</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.reviewScore.</span><span style="color:#B392F0">toString</span><span style="color:#E1E4E8">(); </span><span style="color:#6A737D">// isn't guaranteed to return a string</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// good</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> totalScore</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> String</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.reviewScore);</span></span></code></pre>
+<ul>
+<li>[9.2] Numbers: Use Number for type casting and parseInt always with a radix for parsing strings</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> inputValue</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> '4'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> val</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Number</span><span style="color:#E1E4E8">(inputValue);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> val</span><span style="color:#F97583"> =</span><span style="color:#F97583"> +</span><span style="color:#E1E4E8">inputValue;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> val</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> inputValue </span><span style="color:#F97583">>></span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// bad</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> val</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> parseInt</span><span style="color:#E1E4E8">(inputValue);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// good</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> val</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> Number</span><span style="color:#E1E4E8">(inputValue);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// good</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> val</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> parseInt</span><span style="color:#E1E4E8">(inputValue, </span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">);</span></span></code></pre> </div> <aside class="post-sidebar"> <div class="sidebar-block"> <h3>Recent</h3> <ul> <li><a href="/2016-10-23-科学小常识">利用业余时间拯救世界</a></li><li><a href="/2016-10-19-软件人生">远大前程, 从软件新手到行业大牛</a></li><li><a href="/2016-07-02-javasript-代码规范-airbnb">JavaScript 代码规范</a></li><li><a href="/2016-06-25-web-front-end-best-practices">web 前端开发最佳实践</a></li><li><a href="/2016-06-01-four-way-to-fibonacci">斐波那契数列的四种生成方式</a></li><li><a href="/2016-05-31-merge-sort">归并排序</a></li><li><a href="/2016-05-30-most-easy-dynamic-programming">动态规划最简单的两道题</a></li><li><a href="/2016-05-28-rest-api">REST API 设计</a></li><li><a href="/2016-05-27-fabric-study">Fabric学习笔记</a></li><li><a href="/2016-05-25-html-and-css-interview">html和css笔试面试题</a></li> </ul> </div> </aside> </article> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="pIqV3" prefix="r1" component-url="/_assets/Clock.BCydmbVR.js" component-export="default" renderer-url="/_assets/client.nFz3bvDj.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;Clock&quot;,&quot;value&quot;:true}"></astro-island>  </main> <!-- ── Footer ── --> <footer class="site-footer"> <div class="footer-inner"> <span>&copy; 2026 konglx90</span> <div class="footer-links"> <a href="https://github.com/konglx90" target="_blank">GitHub</a> <a href="https://www.douban.com/people/103562367/" target="_blank">豆瓣</a> </div> </div> </footer>  </body> </html> 

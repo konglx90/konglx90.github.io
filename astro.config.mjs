@@ -4,7 +4,7 @@ import react from '@astrojs/react';
 export default defineConfig({
   integrations: [react()],
   site: 'https://konglx90.github.io',
-  outDir: 'dist',
+  outDir: 'docs',
   build: {
     assets: '_assets',
   },
