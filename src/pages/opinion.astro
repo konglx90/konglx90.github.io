@@ -8,49 +8,40 @@ const posts = (await getCollection('posts'))
 ---
 
 <BaseLayout title="Opinion">
-  <div class="index-content">
-    <aside class="aside"></aside>
-    <div class="section">
-      <ul class="artical-cate">
-        <li><a href="/"><span>Blog</span></a></li>
-        <li class="on" style="text-align:center"><a href="/opinion"><span>Opinion</span></a></li>
-        <li style="text-align:right"><a href="/project"><span>Project</span></a></li>
-      </ul>
-      <div class="cate-bar"><span id="cateBar"></span></div>
+  <div class="page-header">
+    <h1 class="page-title">Opinion</h1>
+    <p class="page-desc">随笔与思考</p>
+  </div>
 
-      <ul class="artical-list">
-        {posts.map(post => (
-          <li>
-            <h2><a href={`/${post.slug}`}>{post.data.title}</a></h2>
-            {post.data.description && post.data.description.length > 0 && <div class="title-desc">{post.data.description}</div>}
-          </li>
-        ))}
-      </ul>
-    </div>
+  <div class="post-list">
+    {posts.map(post => (
+      <article class="post-card">
+        <time class="post-date">{post.data.pubDate.toISOString().slice(0, 10)}</time>
+        <h2 class="post-title"><a href={`/${post.slug}`}>{post.data.title}</a></h2>
+        {post.data.description && post.data.description.length > 0 && (
+          <p class="post-desc">{post.data.description}</p>
+        )}
+      </article>
+    ))}
   </div>
 </BaseLayout>
 
 <style is:global>
-  .index-content .aside { position: fixed; top: 0; left: 0; width: 30%; height: 100%; max-width: 500px; background: #1e1e2e; box-shadow: inset -1px 0 0 rgba(0,0,0,0.3); }
-  .index-content .section { margin-left: 30%; padding: 80px 10% 80px 5%; }
-  .index-content .artical-list { width: 80%; max-width: 600px; margin: 0 auto; }
-  .index-content .artical-list li { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--color-border); }
-  .index-content .artical-list li:last-child { border-bottom: none; }
-  .index-content h2 { font-size: 1.25rem; margin-bottom: 0.6rem; word-break: break-all; font-weight: 700; }
-  .index-content h2 a { color: var(--color-text); }
-  .index-content h2 a:hover { color: var(--color-accent); text-decoration: none; }
-  .index-content .title-desc { color: var(--color-text-secondary); font-size: 0.875rem; line-height: 1.6; }
-  .index-content .artical-cate { width: 80%; max-width: 600px; margin: 0 auto 1.5rem; }
-  .index-content .artical-cate li { display: inline-block; font-size: 1.125rem; width: 32%; cursor: pointer; }
-  .index-content .artical-cate li a { display: inline-block; color: var(--color-text-secondary); width: 100%; text-align: center; padding: 0.5em 0; }
-  .index-content .artical-cate li a:hover { color: var(--color-text); text-decoration: none; }
-  .index-content .artical-cate li.on span { color: var(--color-accent); font-weight: 600; }
-  .index-content .cate-bar { height: 3px; width: 80%; max-width: 600px; margin: 0 auto 3rem; }
-  .index-content #cateBar { display: inline-block; height: 3px; background: var(--color-accent); position: relative; width: 0; border-radius: 2px; }
-  @media (max-width: 750px) {
-    .index-content .aside { display: none; }
-    .index-content .section { margin-left: 0; padding: 40px 0; }
-    .index-content .section ul, .index-content .cate-bar, .index-content .artical-cate { width: 90%; }
-    .index-content .artical-cate { margin-top: 30px; }
+  .page-header { max-width: var(--content-max); margin: 0 auto; padding: 60px 24px 40px; }
+  .page-title { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
+  .page-desc { margin-top: 8px; font-size: 1.05rem; color: var(--text-secondary); }
+  .post-list { max-width: var(--content-max); margin: 0 auto; padding: 0 24px 60px; display: flex; flex-direction: column; gap: 8px; }
+  .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; transition: all 0.2s; }
+  .post-card:hover { border-color: var(--accent); box-shadow: var(--shadow-lg); }
+  .post-date { font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono); letter-spacing: 0.02em; }
+  .post-title { margin-top: 6px; font-size: 1.125rem; font-weight: 600; line-height: 1.4; }
+  .post-title a { color: var(--text); }
+  .post-title a:hover { color: var(--accent); }
+  .post-desc { margin-top: 8px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+  @media (max-width: 640px) {
+    .page-header { padding: 40px 16px 28px; }
+    .page-title { font-size: 1.75rem; }
+    .post-list { padding: 0 16px 40px; }
+    .post-card { padding: 18px 20px; }
   }
 </style>

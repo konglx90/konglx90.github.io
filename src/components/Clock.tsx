@@ -17,7 +17,6 @@ export default function Clock() {
 
   return (
     <div className="fixed-clock">
-      <span className="clock-icon">🕒</span>
       <span className="clock-time">{h}:{m}:{s}</span>
     </div>
   );

@@ -12,148 +12,169 @@ const siteTitle = 'konglx90';
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
-  <meta name="author" content="Konglx90" />
-  <meta name="renderer" content="webkit" />
-  <meta name="description" content={description || "Konglx90's Blog"} />
+  <title>{title ? `${title} · ${siteTitle}` : siteTitle}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="/atom.xml" />
+  <meta name="description" content={description || "Konglx90's Blog"} />
+  <meta name="author" content="Konglx90" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml" />
   <style is:global>
+    /* ── Design Tokens ── */
     :root {
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
         "Helvetica Neue", Arial, sans-serif;
-      --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono",
-        "Source Code Pro", Consolas, "Courier New", monospace;
-      --color-bg: #f5f5f5;
-      --color-surface: #ffffff;
-      --color-text: #222222;
-      --color-text-secondary: #666666;
-      --color-text-light: #999999;
-      --color-link: #2563eb;
-      --color-link-hover: #dc2626;
-      --color-accent: #dc2626;
-      --color-border: #e5e5e5;
-      --color-code-bg: #f3f4f6;
-      --color-pre-bg: #1e1e2e;
-      --color-pre-text: #cdd6f4;
-      --color-shadow: rgba(0, 0, 0, 0.08);
-      --content-width: 1060px;
-      --entry-width: 680px;
-      --sidebar-width: 240px;
-      --gap: 40px;
+      --font-mono: "SF Mono", "Fira Code", "JetBrains Mono",
+        "Roboto Mono", "Source Code Pro", Consolas, monospace;
+
+      --bg: #f8f7f4;
+      --surface: #ffffff;
+      --surface-hover: #fafaf9;
+      --text: #1c1917;
+      --text-secondary: #78716c;
+      --text-muted: #a8a29e;
+      --accent: #e11d48;
+      --accent-hover: #be123c;
+      --accent-subtle: #fef2f2;
+      --border: #e7e5e4;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-lg: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --nav-height: 56px;
+      --content-max: 720px;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --color-bg: #18181b;
-        --color-surface: #27272a;
-        --color-text: #e4e4e7;
-        --color-text-secondary: #a1a1aa;
-        --color-text-light: #71717a;
-        --color-link: #60a5fa;
-        --color-link-hover: #f87171;
-        --color-accent: #f87171;
-        --color-border: #3f3f46;
-        --color-code-bg: #3f3f46;
-        --color-pre-bg: #111113;
-        --color-pre-text: #e4e4e7;
-        --color-shadow: rgba(0, 0, 0, 0.3);
+        --bg: #0c0a09;
+        --surface: #1c1917;
+        --surface-hover: #292524;
+        --text: #e7e5e4;
+        --text-secondary: #a8a29e;
+        --text-muted: #78716c;
+        --accent: #fb7185;
+        --accent-hover: #fda4af;
+        --accent-subtle: #1c1917;
+        --border: #292524;
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+        --shadow: 0 1px 3px rgba(0,0,0,0.3);
+        --shadow-lg: 0 4px 12px rgba(0,0,0,0.4);
       }
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { color: var(--color-text); scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      margin: 0;
       font-family: var(--font-sans);
       font-size: 16px;
-      line-height: 1.8;
-      color: var(--color-text);
-      background: var(--color-bg);
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    a { color: var(--color-link); text-decoration: none; transition: color 0.2s; }
-    a:hover { color: var(--color-link-hover); text-decoration: underline; }
-    h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: 500; }
-    ul, ol { list-style: none; padding: 0; margin: 0; }
-    img { max-width: 100%; height: auto; }
-    pre { font-family: var(--font-mono); }
-    code { font-family: var(--font-mono); }
+    a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent); }
+    img { max-width: 100%; height: auto; display: block; }
+    ::selection { background: var(--accent); color: white; }
   </style>
 </head>
 <body>
-  <nav class="home-menu">
-    <a class="home-menu-icon" href="/">Konglx</a>
-    <button class="home-follow" id="contactBtn" aria-label="联系方式">+</button>
-    <div class="home-contact" id="contactPanel">
-      <a href="https://github.com/konglx90" target="_blank" title="GitHub">
-        <img src="https://github.com/favicon.ico" alt="GitHub" width="22" />
-      </a>
-      <a href="https://www.douban.com/people/103562367/" target="_blank" title="豆瓣">
-        <img src="https://www.douban.com/favicon.ico" alt="豆瓣" width="22" />
-      </a>
+  <!-- ── Navigation ── -->
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Konglx</a>
+      <nav class="nav-links">
+        <a href="/" class={!title ? 'active' : ''}>Blog</a>
+        <a href="/opinion" class={title === 'Opinion' ? 'active' : ''}>Opinion</a>
+        <a href="/project" class={title === 'Project' ? 'active' : ''}>Project</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <slot />
+  <main>
+    <slot />
+  </main>
 
-  <footer class="footer">
-    <a href="https://github.com/konglx90">konglx90</a> &middot;
-    Powered by <a href="https://astro.build">Astro</a> &middot;
-    Hosted on <a href="https://pages.github.com">GitHub Pages</a>
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; {new Date().getFullYear()} konglx90</span>
+      <div class="footer-links">
+        <a href="https://github.com/konglx90" target="_blank">GitHub</a>
+        <a href="https://www.douban.com/people/103562367/" target="_blank">豆瓣</a>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    document.getElementById('contactBtn')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      const panel = document.getElementById('contactPanel');
-      if (panel) panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-    });
-  </script>
-
   <style is:global>
-    .home-menu {
-      position: fixed; top: 15px; left: 15px; z-index: 50; font-size: 0;
+    /* ── Navigation ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
-    .home-menu-icon {
-      line-height: 38px; padding: 0 10px; display: inline-block;
-      color: var(--color-text); font-size: 1rem; font-weight: 600;
-      background: var(--color-surface); border-radius: 6px 0 0 6px;
-      box-shadow: 0 1px 3px var(--color-shadow);
+    .nav-inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .home-follow {
-      line-height: 38px; padding: 0 10px; display: inline-block;
-      color: var(--color-text); font-size: 1.2rem; cursor: pointer;
-      background: var(--color-surface); border: none;
-      border-radius: 0 6px 6px 0;
-      box-shadow: 0 1px 3px var(--color-shadow);
-      font-family: inherit;
+    .nav-logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
-    .home-menu-icon:hover, .home-follow:hover {
-      background: var(--color-code-bg); text-decoration: none;
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a {
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s;
     }
-    .home-contact {
-      margin-top: 4px; background: var(--color-surface);
-      border-radius: 8px; padding: 10px 12px; text-align: center;
-      display: none; box-shadow: 0 2px 8px var(--color-shadow);
+    .nav-links a:hover { color: var(--text); background: var(--surface-hover); }
+    .nav-links a.active {
+      color: var(--accent);
+      background: var(--accent-subtle);
     }
-    .home-contact a { width: 32px; display: inline-block; vertical-align: middle; }
-    .home-contact img { width: 20px; height: 20px; border-radius: 4px; opacity: 0.7; }
-    .home-contact img:hover { opacity: 1; }
 
-    .footer {
-      clear: both; text-align: center; padding: 1.5rem;
-      color: var(--color-text-light); font-size: 0.85rem; line-height: 1.6;
+    /* ── Footer ── */
+    .site-footer {
+      margin-top: 100px;
+      border-top: 1px solid var(--border);
     }
-    .footer a { color: var(--color-text-secondary); }
-    .footer a:hover { color: var(--color-link); }
+    .footer-inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 32px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--text-secondary); font-size: 0.875rem; }
 
-    @media (max-width: 750px) {
-      .home-menu { top: 10px; left: 10px; }
-      .home-menu-icon, .home-follow { line-height: 34px; font-size: 0.9rem; }
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .nav-inner { padding: 0 16px; }
+      .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
     }
+
+    /* ── Skip layout shift for pages without main content ── */
+    main { min-height: calc(100vh - var(--nav-height) - 100px); }
   </style>
 </body>
 </html>
