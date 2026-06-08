@@ -4,13 +4,9 @@ markdown: kramdown
 kramdown:
     input: GFM
 highlighter: rouge
-# 分页, 以后数目多了考虑
-#paginate: 8
-#gems: [jekyll-paginate]
-#paginate_path: "/blog/page:num/"
 permalink: /:title
 
 title: konglx90
-url: http://konglx90.github.io/
+url: https://konglx90.github.io/
 feed: /atom.xml
-author_info: <a href="http://konglx90.github.io//">konglx90</a>
+author_info: <a href="https://konglx90.github.io/">konglx90</a>
