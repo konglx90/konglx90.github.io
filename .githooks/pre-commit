@@ -5,4 +5,5 @@ if [ $? -ne 0 ]; then
   echo "❌ Build failed, commit aborted"
   exit 1
 fi
-echo "✅ Build OK"
+git add docs/
+echo "✅ Build OK, docs/ staged"
