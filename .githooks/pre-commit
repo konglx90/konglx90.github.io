@@ -1,9 +1,2 @@
 #!/bin/sh
-echo "📦 Building site..."
-npm run build
-if [ $? -ne 0 ]; then
-  echo "❌ Build failed, commit aborted"
-  exit 1
-fi
-git add docs/
-echo "✅ Build OK, docs/ staged"
+echo "✅ CI 会自动构建部署，直接 commit"
