@@ -26,7 +26,9 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci --loglevel verbose
+        run: |
+          npm config set registry https://registry.npmmirror.com/
+          npm ci --loglevel verbose
 
       - run: npm run build
 
