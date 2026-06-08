@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import Clock from '../components/Clock';
 import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
@@ -28,6 +29,8 @@ const { Content } = await post.render();
       </ul>
     </aside>
   </div>
+
+  <Clock client:load />
 </BaseLayout>
 
 <style is:global>
@@ -91,5 +94,41 @@ const { Content } = await post.render();
     .sidenav { display: none; }
     .entry { float: none; width: 100%; background: transparent; padding: 0; box-shadow: none; min-height: auto; }
     #content { width: 88%; max-width: 700px; margin: 80px auto 40px; }
+  }
+
+  /* Fixed clock styles */
+  .fixed-clock {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 8px 14px;
+    box-shadow: 0 2px 12px var(--color-shadow);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .fixed-clock .clock-icon { font-size: 1rem; line-height: 1; }
+  .fixed-clock .clock-time {
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--color-text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 750px) {
+    .fixed-clock {
+      bottom: 12px;
+      right: 12px;
+      padding: 6px 10px;
+      font-size: 0.8rem;
+    }
   }
 </style>

@@ -17,5 +17,6 @@
   "devDependencies": {
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0"
-  }
+  },
+  "repository": "git@github.com:konglx90/konglx90.github.io.git"
 }
