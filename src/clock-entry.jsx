@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
 
-export default function Clock() {
-  const [time, setTime] = useState<Date | null>(null);
+function Clock() {
+  const [time, setTime] = useState(null);
 
   useEffect(() => {
     setTime(new Date());
@@ -14,10 +15,8 @@ export default function Clock() {
   const h = String(time.getHours()).padStart(2, '0');
   const m = String(time.getMinutes()).padStart(2, '0');
   const s = String(time.getSeconds()).padStart(2, '0');
-
-  return (
-    <div className="fixed-clock">
-      <span className="clock-time">{h}:{m}:{s}</span>
-    </div>
-  );
+  return `${h}:${m}:${s}`;
 }
+
+const el = document.getElementById('fixedClock');
+if (el) createRoot(el).render(<Clock />);

@@ -1,6 +1,5 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import Clock from '../components/Clock';
 import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
@@ -32,7 +31,7 @@ const catSlugs = { blog: '/', opinion: '/opinion', project: '/project' };
 
   </article>
 
-  <Clock client:load />
+  <script is:inline src="/vendor/vendor.js"></script>
 </BaseLayout>
 
 <style is:global>

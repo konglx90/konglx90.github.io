@@ -1,2 +1,2 @@
 #!/bin/sh
-# 如果想在本地预览，手动执行 npm run build
+echo "✅ 提交前无需构建，CI 会自动处理"

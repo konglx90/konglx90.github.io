@@ -6,17 +6,17 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:vendor": "vite build --config vite.config.vendor.js",
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/react": "^4.2.3",
-    "astro": "^5.7.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "astro": "^5.7.0"
   },
   "devDependencies": {
-    "@types/react": "^19.1.0",
-    "@types/react-dom": "^19.1.0"
+    "@vitejs/plugin-react": "^4.4.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "vite": "^6.3.2"
   },
   "repository": "git@github.com:konglx90/konglx90.github.io.git"
 }
