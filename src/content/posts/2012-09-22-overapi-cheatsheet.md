@@ -11,7 +11,7 @@ Chrome插件下载：[All Cheat Sheets][4]
 
 <a href="http://overapi.com" title="OverAPI - Collecting all the cheat sheets" target="_blank"><img src="/images/overapi/overapi.jpg" alt="OverAPI"></a>
 
-生活在继续，遇到的人和事越来越繁杂，于是，满目的秋意、愉悦的欢叫，都像微风一样，带来的是美妙的简单。
+yes 生活在继续，遇到的人和事越来越繁杂，于是，满目的秋意、愉悦的欢叫，都像微风一样，带来的是美妙的简单。
 
 我们总想拥有一切，可一切到底有多少，就像诺兰的处女作[Following][3]中表现的一样，一些物品只有在失去时才知道他存在过。
 
