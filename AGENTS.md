@@ -1,63 +1,71 @@
-# konglx90.github.io — 个人博客项目
+# konglx90.github.io — 个人博客
 
 ## 项目概述
 
-基于 **Jekyll + GitHub Pages** 的个人博客，使用 **kramdown** (GFM) 作为 Markdown 处理器，**rouge** 作为语法高亮工具。
+基于 **Astro + React** 的静态博客，托管在 GitHub Pages，通过 GitHub Actions 自动构建部署。
+
+## 快速开始
+
+```bash
+npm install        # 安装依赖
+npm run dev        # 本地开发 (http://localhost:4321)
+npm run build      # 构建到 dist/
+npm run preview    # 预览构建结果
+```
 
 ## 目录结构
 
 ```
-├── _config.yml          # Jekyll 配置（标题、URL、permalink 等）
-├── _layouts/            # 页面模板
-│   ├── default.html     # 基础 HTML 框架（header/footer）
-│   ├── home.html        # 首页/分类页布局（带分类切换动画）
-│   ├── post.html        # 文章详情页（含侧栏、目录导航）
-│   └── page.html        # 普通页面
-├── _posts/              # 文章内容（按分类存放）
-│   ├── blog/            # 技术博客
-│   ├── opinion/         # 观点随笔
-│   └── project/         # 项目记录
-├── css/
-│   ├── default.css      # 主样式表
-│   └── css3-ani.css     # CSS3 动画演示示例
-├── js/
-│   ├── jquery-1.7.1.min.js  # jQuery（版本较旧）
-│   ├── post.js               # 文章页脚本（目录生成、外链处理、代码高亮）
-│   └── prettify/             # Google Code Prettify（已弃用，应迁移至 rouge）
-├── images/              # 图片资源
-├── index.md             # 博客首页
-├── opinion/index.md     # 观点分类页
-├── project/index.md     # 项目分类页
-├── 404.html             # 404 页面
-├── webapp/              # 历史 Web 应用（ici 词典、地图等）
-└── resume/              # 简历页面
+├── src/
+│   ├── content/
+│   │   ├── config.ts       # 内容集合 schema（title, description, category, pubDate）
+│   │   └── posts/          # 所有文章 (Markdown)
+│   ├── layouts/
+│   │   ├── BaseLayout.astro  # 基础 HTML 框架 + 导航 + 页脚
+│   │   └── PostLayout.astro  # 文章详情页布局
+│   ├── pages/
+│   │   ├── index.astro       # 首页（Blog 分类）
+│   │   ├── opinion.astro     # Opinion 分类
+│   │   ├── project.astro     # Project 分类
+│   │   ├── [...slug].astro   # 文章详情页（动态路由）
+│   │   └── 404.astro         # 404 页面
+│   └── components/           # React 组件（预留）
+├── public/
+│   ├── images/               # 图片资源
+│   ├── webapp/               # 历史 Web 应用
+│   ├── resume/               # 简历
+│   ├── favicon.ico
+│   └── CNAME
+├── .github/workflows/deploy.yml  # GitHub Actions 自动部署
+├── astro.config.mjs              # Astro 配置
+├── package.json
+└── AGENTS.md
 ```
 
-## 文章分类
+## 写作
 
-| 分类 | 目录 | 说明 |
-|------|------|------|
-| blog | `_posts/blog/` | 技术文章（JavaScript、CSS、算法等） |
-| opinion | `_posts/opinion/` | 观点随笔 |
-| project | `_posts/project/` | 项目记录 |
+在 `src/content/posts/` 下创建 `YYYY-MM-DD-title.md`，frontmatter 格式：
 
-## 本地开发
-
-```bash
-# 如果使用 GitHub Pages 原生构建，无需本地 Jekyll
-# 需要本地预览时：
-gem install jekyll bundler
-bundle exec jekyll serve --watch
+```yaml
+---
+title: 文章标题
+description: 文章简介
+category: blog        # blog | opinion | project
+pubDate: 2024-01-01   # 发布日期
+---
 ```
 
-> 本项目主要在 GitHub Pages 上自动构建，本地无需运行 Jekyll。
+## 部署
+
+push 到 `main` 分支后，GitHub Actions 自动：
+1. `npm ci && npm run build`
+2. 将 `dist/` 部署到 GitHub Pages
+
+需要配置：Settings → Pages → Source = **GitHub Actions**
 
 ## 注意事项
 
-1. **Comment**: 原 Disqus/多说评论系统已不再维护，发表新文章时注意评论方案
-2. **jQuery**: 当前使用 1.7.1（2011年），如有新功能建议升级
-3. **Syntax Highlighting**: 已配置 `rouge` 高亮，但 post.js 仍加载 `prettify.js`，建议统一
-4. **Pagination**: 文章数量超过 20 篇时建议开启分页
-5. **GitHub Actions**: 可配置自动构建部署流程
-6. **Posts naming**: 严格遵循 `YYYY-MM-DD-title.md` 格式
-7. **Drafts**: `_posts/` 下带 `_` 前缀的文件不会被 Jekyll 编译
+- 无需本地 Jekyll，纯 Node.js 构建
+- 自动暗色模式（跟随系统）
+- 文章 slug 使用完整文件名（含日期前缀）
+- 如需保持旧博客 `:title` 格式的 URL，需添加重定向

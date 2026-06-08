@@ -1,0 +1,159 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const siteTitle = 'konglx90';
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
+  <meta name="author" content="Konglx90" />
+  <meta name="renderer" content="webkit" />
+  <meta name="description" content={description || "Konglx90's Blog"} />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="/atom.xml" />
+  <style is:global>
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+        "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono",
+        "Source Code Pro", Consolas, "Courier New", monospace;
+      --color-bg: #f5f5f5;
+      --color-surface: #ffffff;
+      --color-text: #222222;
+      --color-text-secondary: #666666;
+      --color-text-light: #999999;
+      --color-link: #2563eb;
+      --color-link-hover: #dc2626;
+      --color-accent: #dc2626;
+      --color-border: #e5e5e5;
+      --color-code-bg: #f3f4f6;
+      --color-pre-bg: #1e1e2e;
+      --color-pre-text: #cdd6f4;
+      --color-shadow: rgba(0, 0, 0, 0.08);
+      --content-width: 1060px;
+      --entry-width: 680px;
+      --sidebar-width: 240px;
+      --gap: 40px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #18181b;
+        --color-surface: #27272a;
+        --color-text: #e4e4e7;
+        --color-text-secondary: #a1a1aa;
+        --color-text-light: #71717a;
+        --color-link: #60a5fa;
+        --color-link-hover: #f87171;
+        --color-accent: #f87171;
+        --color-border: #3f3f46;
+        --color-code-bg: #3f3f46;
+        --color-pre-bg: #111113;
+        --color-pre-text: #e4e4e7;
+        --color-shadow: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { color: var(--color-text); scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--color-link); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--color-link-hover); text-decoration: underline; }
+    h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: 500; }
+    ul, ol { list-style: none; padding: 0; margin: 0; }
+    img { max-width: 100%; height: auto; }
+    pre { font-family: var(--font-mono); }
+    code { font-family: var(--font-mono); }
+  </style>
+</head>
+<body>
+  <nav class="home-menu">
+    <a class="home-menu-icon" href="/">Konglx</a>
+    <button class="home-follow" id="contactBtn" aria-label="联系方式">+</button>
+    <div class="home-contact" id="contactPanel">
+      <a href="https://github.com/konglx90" target="_blank" title="GitHub">
+        <img src="https://github.com/favicon.ico" alt="GitHub" width="22" />
+      </a>
+      <a href="https://www.douban.com/people/103562367/" target="_blank" title="豆瓣">
+        <img src="https://www.douban.com/favicon.ico" alt="豆瓣" width="22" />
+      </a>
+    </div>
+  </nav>
+
+  <slot />
+
+  <footer class="footer">
+    <a href="https://github.com/konglx90">konglx90</a> &middot;
+    Powered by <a href="https://astro.build">Astro</a> &middot;
+    Hosted on <a href="https://pages.github.com">GitHub Pages</a>
+  </footer>
+
+  <script>
+    document.getElementById('contactBtn')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      const panel = document.getElementById('contactPanel');
+      if (panel) panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
+
+  <style is:global>
+    .home-menu {
+      position: fixed; top: 15px; left: 15px; z-index: 50; font-size: 0;
+    }
+    .home-menu-icon {
+      line-height: 38px; padding: 0 10px; display: inline-block;
+      color: var(--color-text); font-size: 1rem; font-weight: 600;
+      background: var(--color-surface); border-radius: 6px 0 0 6px;
+      box-shadow: 0 1px 3px var(--color-shadow);
+    }
+    .home-follow {
+      line-height: 38px; padding: 0 10px; display: inline-block;
+      color: var(--color-text); font-size: 1.2rem; cursor: pointer;
+      background: var(--color-surface); border: none;
+      border-radius: 0 6px 6px 0;
+      box-shadow: 0 1px 3px var(--color-shadow);
+      font-family: inherit;
+    }
+    .home-menu-icon:hover, .home-follow:hover {
+      background: var(--color-code-bg); text-decoration: none;
+    }
+    .home-contact {
+      margin-top: 4px; background: var(--color-surface);
+      border-radius: 8px; padding: 10px 12px; text-align: center;
+      display: none; box-shadow: 0 2px 8px var(--color-shadow);
+    }
+    .home-contact a { width: 32px; display: inline-block; vertical-align: middle; }
+    .home-contact img { width: 20px; height: 20px; border-radius: 4px; opacity: 0.7; }
+    .home-contact img:hover { opacity: 1; }
+
+    .footer {
+      clear: both; text-align: center; padding: 1.5rem;
+      color: var(--color-text-light); font-size: 0.85rem; line-height: 1.6;
+    }
+    .footer a { color: var(--color-text-secondary); }
+    .footer a:hover { color: var(--color-link); }
+
+    @media (max-width: 750px) {
+      .home-menu { top: 10px; left: 10px; }
+      .home-menu-icon, .home-follow { line-height: 34px; font-size: 0.9rem; }
+    }
+  </style>
+</body>
+</html>
