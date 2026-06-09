@@ -4,10 +4,12 @@ import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
   post: CollectionEntry<'posts'>;
+  headings: { depth: number; slug: string; text: string }[];
 }
 
-const { post } = Astro.props;
+const { post, headings } = Astro.props;
 const { Content } = await post.render();
+const tocItems = headings.filter(h => h.depth === 2 || h.depth === 3);
 const cats = { blog: 'Blog', opinion: 'Opinion', project: 'Project' };
 const catSlugs = { blog: '/', opinion: '/opinion', project: '/project' };
 ---
@@ -24,25 +26,77 @@ const catSlugs = { blog: '/', opinion: '/opinion', project: '/project' };
       </div>
     </header>
 
-    <div class="post-body">
-      <Content />
+    <div class="post-content">
+      <div class="post-body">
+        <Content />
+      </div>
+
+      {tocItems.length > 0 && (
+        <aside class="post-sidebar" aria-label="目录">
+          <div class="sidebar-block">
+            <h3>目录</h3>
+            <ul>
+              {tocItems.map(h => (
+                <li class:list={[`depth-${h.depth}`]}>
+                  <a href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+      )}
     </div>
 
 
   </article>
 
   <script is:inline src="/vendor/vendor.js"></script>
+
+  {tocItems.length > 0 && (
+    <script is:inline>
+      (() => {
+        const links = document.querySelectorAll('.post-sidebar a[href^="#"]');
+        if (!links.length) return;
+        const map = new Map();
+        links.forEach(a => {
+          const id = a.getAttribute('href').slice(1);
+          const el = document.getElementById(id);
+          if (el) map.set(el, a);
+        });
+        if (!map.size) return;
+        const navH = parseInt(getComputedStyle(document.documentElement)
+          .getPropertyValue('--nav-height')) || 56;
+        const visible = new Set();
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) visible.add(e.target);
+            else visible.delete(e.target);
+          });
+          let top = null;
+          for (const el of visible) {
+            if (!top || el.getBoundingClientRect().top < top.getBoundingClientRect().top) {
+              top = el;
+            }
+          }
+          links.forEach(a => a.classList.remove('active'));
+          if (top && map.has(top)) map.get(top).classList.add('active');
+        }, { rootMargin: `-${navH + 16}px 0px -60% 0px`, threshold: 0 });
+        map.forEach((_, el) => io.observe(el));
+      })();
+    </script>
+  )}
 </BaseLayout>
 
 <style is:global>
   .post-full {
+    max-width: calc(var(--content-max) + 240px + 48px);
     margin: 0 auto;
     padding: 0 24px 80px;
   }
 
   /* ── Post Header ── */
   .post-head {
-    width: 100%;
+    max-width: var(--content-max);
     padding: 48px 0 32px;
     border-bottom: 1px solid var(--border);
     margin-bottom: 0;
@@ -75,12 +129,22 @@ const catSlugs = { blog: '/', opinion: '/opinion', project: '/project' };
   }
   .meta-dot { margin: 0 6px; }
 
+  /* ── Post Content (body + sidebar) ── */
+  .post-content {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
   /* ── Post Body ── */
   .post-body {
     flex: 1;
     min-width: 0;
     max-width: var(--content-max);
     padding-top: 32px;
+  }
+  .post-body :is(h2, h3, h4) {
+    scroll-margin-top: calc(var(--nav-height) + 16px);
   }
   .post-body h2 {
     font-size: 1.5rem;
@@ -176,11 +240,15 @@ const catSlugs = { blog: '/', opinion: '/opinion', project: '/project' };
     .post-body pre { background: #000000; border-color: var(--border); }
   }
 
+  /* ── Post Sidebar (TOC) ── */
+  .post-sidebar {
     width: 240px;
     flex-shrink: 0;
     position: sticky;
     top: calc(var(--nav-height) + 32px);
     padding-top: 32px;
+    max-height: calc(100vh - var(--nav-height) - 32px);
+    overflow-y: auto;
   }
   .sidebar-block {
     background: var(--surface);
@@ -196,15 +264,37 @@ const catSlugs = { blog: '/', opinion: '/opinion', project: '/project' };
     letter-spacing: 0.05em;
     margin-bottom: 12px;
   }
-  .sidebar-block ul { display: flex; flex-direction: column; gap: 8px; }
-  .sidebar-block li {}
+  .sidebar-block ul {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    list-style: none;
+  }
+  .sidebar-block li {
+    list-style: none;
+  }
+  .sidebar-block li.depth-3 {
+    padding-left: 12px;
+  }
+  .sidebar-block li.depth-3 a {
+    font-size: 0.8rem;
+  }
   .sidebar-block a {
     font-size: 0.85rem;
     color: var(--text-secondary);
-    line-height: 1.4;
+    line-height: 1.5;
     display: block;
+    border-left: 2px solid transparent;
+    padding-left: 8px;
+    margin-left: -10px;
+    transition: color 0.15s, border-color 0.15s;
   }
-  .sidebar-block a:hover { color: var(--accent); }
+  .sidebar-block a:hover { color: var(--text); }
+  .sidebar-block a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    font-weight: 500;
+  }
 
   /* ── Responsive ── */
   @media (max-width: 900px) {
